@@ -2,19 +2,20 @@ package com.techelevator;
 
 public class Lecture {
 
-	public static void main(String[] args) {
+	public static <String> void main(String[] args) {
 		
 		/*
 		1. Create a variable to hold an int and call it numberOfExercises.
 			Then set it to 26.
 		*/
-
+		int numberOfExercises = 26;
 		//System.out.println(numberOfExercises);
 
 		/*
 		2. Create a variable to hold a double and call it half.
 			Set it to 0.5.
 		*/
+	double half = .5;
 
 		//System.out.println(half);
 
@@ -22,6 +23,7 @@ public class Lecture {
 		3. Create a variable to hold a String and call it name.
 			Set it to "TechElevator".
 		*/
+		String name = "TechElevator";
 
 		//System.out.println(name);
 
