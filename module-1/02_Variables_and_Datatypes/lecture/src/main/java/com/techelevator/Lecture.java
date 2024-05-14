@@ -2,7 +2,7 @@ package com.techelevator;
 
 public class Lecture {
 
-	public static <String> void main(String[] args) {
+	public static void main(String[] args) {
 		
 		/*
 		1. Create a variable to hold an int and call it numberOfExercises.
@@ -23,8 +23,7 @@ public class Lecture {
 		3. Create a variable to hold a String and call it name.
 			Set it to "TechElevator".
 		*/
-		String name = "TechElevator";
-
+		String cat = "hi";
 		//System.out.println(name);
 
 		/*
