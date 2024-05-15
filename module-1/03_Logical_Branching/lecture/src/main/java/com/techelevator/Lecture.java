@@ -107,7 +107,14 @@ public class Lecture {
     /*
     11. Write an if statement that returns "Fizz" if the parameter is 3 and returns an empty String for anything else.
     */
+    // if the parameter is 3, return fizz
+    // otherwise return an empty string
     public String returnFizzIfThree(int number) {
+        // if the parameter is 3, return fizz
+        if(number == 3){
+            return "fizz";
+        }
+        // otherwise return an empty string
         return "";
     }
 
