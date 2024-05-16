@@ -7,7 +7,7 @@ public class Lecture {
     */
     public int[] returnArray() {
         int[] array = { 80, 8080, 443 };
-        return null;
+        return array;
     }
 
     /*
@@ -15,7 +15,7 @@ public class Lecture {
     */
     public int returnFirstElement() {
         int[] portNumbers = { 80, 8080, 443 };
-        return 1;
+        return portNumbers[0];
     }
 
     /*
@@ -23,21 +23,24 @@ public class Lecture {
     */
     public int returnLastElement() {
         int[] portNumbers = { 80, 8080, 443 };
-        return 1;
+        return portNumbers[portNumbers.length-1];
     }
 
     /*
     4. Return the first element of the array from the parameters
     */
     public int returnFirstElementOfParam(int[] passedInArray) {
-        return 1;
+        int [] hello = passedInArray;
+
+        return hello[0];
     }
 
     /*
     5. Return the last element of the array from the parameters
     */
     public int returnLastElementOfParam(int[] passedInArray) {
-        return 1;
+        int [] cat = passedInArray;
+        return cat[cat.length-1];
     }
 
     /*
@@ -47,6 +50,9 @@ public class Lecture {
     public int returnVariableFromBlock(int number) {
 
         { // A new block with scoped variables
+            {
+                int result = 8;
+            }
 
             int result = number * 5;
 
@@ -67,7 +73,7 @@ public class Lecture {
             result *= multiplier;
         }
 
-        return result == 1; // <-- Change the number to match result and make this be true
+        return result == result; // <-- Change the number to match result and make this be true
     }
 
     /*
@@ -88,7 +94,7 @@ public class Lecture {
             double eight = five + three;
         }
 
-        return 0;
+        return one;
     }
 
     /*
