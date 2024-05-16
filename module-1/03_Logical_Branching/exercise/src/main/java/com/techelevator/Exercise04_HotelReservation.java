@@ -26,6 +26,12 @@ public class Exercise04_HotelReservation {
     calculateStayTotal(3) ➔ 269.97
      */
     public double calculateStayTotal(int numberOfNights) {
+        if(numberOfNights==1 || numberOfNights ==2){
+            return DAILY_RATE * numberOfNights;
+        }
+        else if(numberOfNights>= 3){
+            return DISCOUNT_RATE * numberOfNights;
+        }
         return 0.0;
     }
 
@@ -41,7 +47,13 @@ public class Exercise04_HotelReservation {
     calculateStayTotal(3, true) ➔ 344.97
      */
     public double calculateStayTotal(int numOfTotalNights, boolean includesParking) {
-        return 0.0;
+        if(includesParking==true){
+            return calculateStayTotal(numOfTotalNights) + (numOfTotalNights * PARKING_RATE) ;
+
+        }
+        else{
+            return calculateStayTotal(numOfTotalNights);
+        }
     }
 
     /*
@@ -61,6 +73,9 @@ public class Exercise04_HotelReservation {
     calculateStayTotal(3, true, true) ➔ 364.97
      */
     public double calculateStayTotal(int numOfTotalNights, boolean includesParking, boolean includesLateCheckout) {
-        return 0.0;
+      if(includesLateCheckout){
+          return calculateStayTotal(numOfTotalNights, includesParking) + LATE_CHECKOUT_FEE;
+      }
+      return calculateStayTotal(numOfTotalNights, includesParking);
     }
 }
