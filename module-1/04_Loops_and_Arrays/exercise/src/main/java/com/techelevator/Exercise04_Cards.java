@@ -44,13 +44,25 @@ public class Exercise04_Cards {
     discardFirstCard(["K-C", "Q-D", "J-H", "10-S", "Q-C"]) → ["Q-D", "J-H", "10-S", "Q-C"]
      */
     public String[] discardFirstCard(String[] hand) {
-        String [] man = hand;
-        String[] holderM = new String[]{};
+        String [] tryitHere = new String[4];
+        String [] heyPud= hand;
+        for(int i = 0; i < heyPud.length; i++){
+            if(i==1){
+                tryitHere[0]= heyPud[i];
+            }
+            if(i==2){
+                tryitHere[1] = heyPud[i];
+            }
+            if(i==3){
+                tryitHere[2] = heyPud[i];
 
-        for(int i = 1; i <= man.length; i++){
-             holderM[i] = man[i];
+            }
+            if(i==4){
+                tryitHere[3] = heyPud[i];
+
+            }
         }
-        return  holderM;
+        return tryitHere;
     }
 
     /*
@@ -69,6 +81,20 @@ public class Exercise04_Cards {
     discardTopCard([]) → []
      */
     public String[] discardTopCard(String[] remainingDeck) {
-        return new String[] {};
-    }    
+        String[] theParameterValue = remainingDeck;
+        if(remainingDeck.length<1){
+            return new String []{};
+        }
+
+        String [] newArray = new String[theParameterValue.length-1];
+
+        for(int i = 1; i < theParameterValue.length; i++) {
+
+            newArray[i-1]= theParameterValue[i];
+
+        }
+
+
+        return newArray;
+    }
 }
