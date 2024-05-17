@@ -16,12 +16,14 @@ class DiscountCalculator {
         // Prompt the user for a discount amount
         // The answer needs to be saved as a double
         System.out.print("Enter the discount amount (w/out percentage): ");
-
+        String hello = scanner.next();
 
 
         // Prompt the user for a series of prices
-        System.out.print("Please provide a series of prices (space separated): ");
 
+        int discount = Integer.parseInt(hello);
+
+        System.out.println("hello" + discount);
 
 
 
