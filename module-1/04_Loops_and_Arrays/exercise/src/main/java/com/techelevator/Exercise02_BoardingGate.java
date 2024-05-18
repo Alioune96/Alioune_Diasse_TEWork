@@ -76,7 +76,7 @@ public class Exercise02_BoardingGate {
         int outerCount = 0;
 
         for(int i= 0; i <seatingChart.length;i++){
-            if(i %3 == 0){
+            if(i % 3 == 0){
                 interCount =0 ;
             }
             if(seatingChart[i]==OCCUPIED){
