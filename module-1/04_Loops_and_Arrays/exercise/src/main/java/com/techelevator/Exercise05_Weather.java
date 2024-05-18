@@ -28,7 +28,7 @@ public class Exercise05_Weather {
 		int dailyLows = 0;
         for(int i = 0; i < dailyHighs.length; i++){
             if(dailyHighs[i] <= FREEZING_TEMPERATURE){
-                dailyLows = dailyLows + 1;
+                dailyLows += 1;
             }
         }
         return dailyLows;
@@ -49,7 +49,14 @@ public class Exercise05_Weather {
 	hottestDay([55]) → 55
     */
     public int hottestDay(int[] dailyHighs) {
-        return 0;
+        int holdHight= -19872;
+        for (int i = 0; i < dailyHighs.length; i++) {
+            if(dailyHighs[i]>holdHight){
+                holdHight = dailyHighs[i];
+            }
+
+        }
+        return holdHight;
     }
 
     /*
@@ -67,6 +74,12 @@ public class Exercise05_Weather {
 	fixTemperatures([]) → []
      */
     public int[] fixTemperatures(int[] temperatures) {
-        return new int[] {};
+        int [] manThatup = temperatures;
+        for (int i = 0; i < manThatup.length; i++) {
+            if(i%2==0){
+                manThatup[i]+=2;
+            }
+        }
+        return manThatup;
     }
 }
