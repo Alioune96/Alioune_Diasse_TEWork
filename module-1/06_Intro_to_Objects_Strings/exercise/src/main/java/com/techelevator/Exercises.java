@@ -34,11 +34,11 @@ public class Exercises {
 	 makeTags("cite", "Yay") → "<cite>Yay</cite>"
 	 */
 	public String makeTags(String tag, String word) {
-		String her = tag.replace("","s");
-		String namme = tag.replace("cite","<cite");
+String newtage = tag.replace(tag,"<"+tag+">");
+String secondTag = tag.replace(tag,"</"+tag+">");
 
 
-		return tag.replace(tag, "");
+		return newtage+word+secondTag;
 	}
 
 	/*
@@ -463,9 +463,26 @@ public class Exercises {
 	 altPairs("CodingHorror") → "Congrr"
 	 */
 	public String altPairs(String str) {
-		int i = 0;
+		String lastH = "";
+		if(str.length()%2==1) {
+			for (int n = 0; n < str.length()-1; n += 4) {
+				lastH = lastH + (str.substring(n, n+2));
 
-		return str.substring(i,i+2);
+				char sotrelast = str.charAt(str.length()-1);
+				lastH+=sotrelast;
+				break;
+
+			}
+		}
+			if (str.length() % 2 == 0) {
+				for (int n = 0; n < str.length(); n += 4) {
+					lastH = lastH + (str.substring(n, n + 2));
+
+				}
+			}
+
+
+		return lastH;
 	}
 
 	/*
