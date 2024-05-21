@@ -34,15 +34,11 @@ public class Exercises {
 	 makeTags("cite", "Yay") → "<cite>Yay</cite>"
 	 */
 	public String makeTags(String tag, String word) {
+		String her = tag.replace("","s");
+		String namme = tag.replace("cite","<cite");
 
-		if (tag.equals("i")) {
-			return "<i>"+word+"</i>";
-		}
-		if (tag.equals("cite")) {
-			return "<cite>"+word+"</cite>";
-		}
 
-		return tag.replace(tag, "<>");
+		return tag.replace(tag, "");
 	}
 
 	/*
@@ -397,8 +393,20 @@ public class Exercises {
 	 stringBits("Heeololeo") → "Hello"
 	 */
 	public String stringBits(String str) {
+		String resulted ="";
+		if(str.equals("")){
+			return str;
+		}
+		if(str.length()<2){
+			return str.substring(0,1);
+		}
+			for (int i = 0; i < str.length(); i+=2) {
+				resulted += str.substring(i,i+1);
 
-		return null;
+			}
+
+
+		return resulted;
 	}
 
 	/*
@@ -408,6 +416,7 @@ public class Exercises {
 	 stringSplosion("ab") → "aab"
 	 */
 	public String stringSplosion(String str) {
+
 		return null;
 	}
 
@@ -436,7 +445,15 @@ public class Exercises {
 	 stringX("xabxxxcdx") → "xabcdx"
 	 */
 	public String stringX(String str) {
-		return null;
+		if(str.length()<2){
+			return str;
+		}
+		if(str.startsWith("x")||str.endsWith("x")){
+			return "x"+str.substring(1,str.length()-1).replace("x","")+"x";
+		}
+
+
+		return str.substring(0).replace("x","");
 	}
 
 	/*
@@ -446,7 +463,9 @@ public class Exercises {
 	 altPairs("CodingHorror") → "Congrr"
 	 */
 	public String altPairs(String str) {
-		return null;
+		int i = 0;
+
+		return str.substring(i,i+2);
 	}
 
 	/*
@@ -457,7 +476,8 @@ public class Exercises {
 	 stringYak("yak123ya") → "123ya"
 	 */
 	public String stringYak(String str) {
-		return null;
+		String heldnew = str.replace("yak", "");
+		return heldnew;
 	}
 
 }

@@ -13,12 +13,12 @@ public class Fibonacci {
 		int secondNumber = 1;
 		int totalcurrent = 0;
 		while (numberAtWork >= firstNumber) {
-			System.out.println(firstNumber);
+			System.out.print(firstNumber+ " ");
 			totalcurrent = firstNumber + secondNumber;
 			firstNumber= secondNumber;
 			secondNumber = totalcurrent;
 			if(numberAtWork<firstNumber){
-				System.out.println("See magic!!");
+				System.out.println(" See magic!!");
 			}
 		}
 

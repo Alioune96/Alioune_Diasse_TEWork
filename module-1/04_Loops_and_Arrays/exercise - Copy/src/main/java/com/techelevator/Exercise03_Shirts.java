@@ -38,6 +38,7 @@ public class Exercise03_Shirts {
     buildBulkOrder(4) → ['S', 'M', 'L', 'S']
     buildBulkOrder(0) → []
      */
+<<<<<<< HEAD:module-1/04_Loops_and_Arrays/exercise/src/main/java/com/techelevator/Exercise03_Shirts.java
     public char[] buildBulkOrder(int numberOfShirts) { 
         char [] iUnderstood = new char [numberOfShirts];
         for (int i = 0; i < iUnderstood.length; i++) {
@@ -53,6 +54,22 @@ public class Exercise03_Shirts {
 
         }
         return iUnderstood;
+=======
+    public char[] buildBulkOrder(int numberOfShirts) {
+        char[] shirts = new char[numberOfShirts];
+
+        for (int i = 0; i < numberOfShirts; i++) {
+            if (i % 3 == 0) {
+                shirts[i] = 'S';
+            } else if (i % 3 == 1) {
+                shirts[i] = 'M';
+            } else {
+                shirts[i] = 'L';
+            }
+        }
+
+        return shirts;
+>>>>>>> 7f045c6823350f174a44a58f0e5ed0755b905f95:module-1/04_Loops_and_Arrays/exercise - Copy/src/main/java/com/techelevator/Exercise03_Shirts.java
     }
 
     /*
@@ -69,6 +86,7 @@ public class Exercise03_Shirts {
     placeRequest([]) → false
      */
     public boolean placeRequest(char[] order) {
+<<<<<<< HEAD:module-1/04_Loops_and_Arrays/exercise/src/main/java/com/techelevator/Exercise03_Shirts.java
         boolean result = false;
         char [] greatEr = order;
         for (int i = 0; i < greatEr.length ; i++) {
@@ -79,5 +97,16 @@ public class Exercise03_Shirts {
         }
 
         return result;
+=======
+
+
+        for (char shirt : order) {
+            if (shirt == 'S') {
+                return true;
+            }
+        }
+
+        return false; 
+>>>>>>> 7f045c6823350f174a44a58f0e5ed0755b905f95:module-1/04_Loops_and_Arrays/exercise - Copy/src/main/java/com/techelevator/Exercise03_Shirts.java
     }
 }
