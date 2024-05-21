@@ -69,9 +69,13 @@ public class Exercise05_AcceptPackage {
     acceptPackage(50, 36, 24, 12) ➔ false
      */
     public boolean acceptPackage(int weightPounds, int lengthInches, int widthInches, int heightInches, boolean isSurchargePaid) {
-//     if(){
-//         return true;
-//     }
+        int total = lengthInches*widthInches*heightInches;
+        int canbemore= 6912;
+     if((weightPounds<=40 && total <= canbemore)&&(((lengthInches<= MAX_DIMENSION_INCHES)||(widthInches <= MAX_DIMENSION_INCHES)||(heightInches<=MAX_DIMENSION_INCHES))&&isSurchargePaid==false)){
+         return false;
+     }
+
+
 
 return acceptPackage(weightPounds, lengthInches, widthInches, heightInches);
     }

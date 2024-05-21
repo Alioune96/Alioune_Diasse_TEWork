@@ -4,6 +4,8 @@ public class Lecture {
 
 	public static void main(String[] args) {
 
+		String getit= "hello";
+		System.out.println(getit.repeat(2));
 		System.out.println("************************************");
 		System.out.println("****** MAKING A STRING OBJECT ******");
 		System.out.println("************************************");
@@ -22,6 +24,14 @@ public class Lecture {
 		System.out.println("******************************");
 		System.out.println();
 
+		String cit = "        columbus                   ";
+		if(cit.endsWith("bus")){
+			System.out.println("king");
+		}
+		else{
+			System.out.println("smh");
+		}
+		System.out.println(cit.trim());
 
 		/* Other commonly used methods:
 		 *
