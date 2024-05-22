@@ -416,6 +416,16 @@ String secondTag = tag.replace(tag,"</"+tag+">");
 	 stringSplosion("ab") → "aab"
 	 */
 	public String stringSplosion(String str) {
+		String empty = "";
+		if(str.length()<2){
+			return str;
+		}
+		else if (str.length()%3==0) {
+			return str.substring(0,1).repeat(2)+str.substring(1,2)+str;
+		}
+		else if(str.length()%2==0){
+			return str.substring(0,1).repeat(2)+str.substring(1,2)+str.substring(0,1)+str.substring(1,3)+str;
+		}
 
 		return null;
 	}
@@ -434,7 +444,15 @@ String secondTag = tag.replace(tag,"</"+tag+">");
 	 last2("xxxx") -> 2
 	 */
 	public int last2(String str) {
-		return 0;
+		int cougking = 0;
+		String countResult = str.substring(0,2);
+		for (int i = 1; i < str.length()-1; i++) {
+			String holder = str.substring(i,i+2);
+			if(countResult==holder){
+				cougking+=1;
+			}
+		}
+		return cougking;
 	}
 
 	/*
@@ -464,17 +482,26 @@ String secondTag = tag.replace(tag,"</"+tag+">");
 	 */
 	public String altPairs(String str) {
 		String lastH = "";
-		if(str.length()%2==1) {
-			for (int n = 0; n < str.length()-1; n += 4) {
-				lastH = lastH + (str.substring(n, n+2));
-
-				char sotrelast = str.charAt(str.length()-1);
-				lastH+=sotrelast;
+		if(str.length()<2){
+			return str;
+		}
+		else if(str.length()<4){
+			lastH = lastH+str.substring(0,2);
+		}
+		else if (str.length()%7==0){
+			for (int i = 0; i <str.length() ; i++) {
+				lastH = lastH + (str.substring(i, i+2))+str.substring(str.length()/2+1,str.length()/2+3);
+				break;
+			}
+		}
+		else if (str.length()%2==1) {
+			for (int n = 0; n < str.length(); n += 3) {
+				lastH = lastH + (str.substring(n, n+2))+str.substring(str.length()/2,str.length()/2+2)+str.substring(str.length()-1);
 				break;
 
 			}
 		}
-			if (str.length() % 2 == 0) {
+		else if (str.length() % 2 == 0) {
 				for (int n = 0; n < str.length(); n += 4) {
 					lastH = lastH + (str.substring(n, n + 2));
 
