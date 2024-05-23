@@ -445,13 +445,17 @@ String secondTag = tag.replace(tag,"</"+tag+">");
 	 */
 	public int last2(String str) {
 		int cougking = 0;
-		String countResult = str.substring(0,2);
-		for (int i = 1; i < str.length()-1; i++) {
+		if(str.length()<=2){
+			return 0;
+		}
+		String countResult = str.substring(str.length()-2);
+		for (int i = 0; i < str.length()-2; i++) {
 			String holder = str.substring(i,i+2);
-			if(countResult==holder){
+			if(countResult.equals(holder)){
 				cougking+=1;
 			}
 		}
+
 		return cougking;
 	}
 

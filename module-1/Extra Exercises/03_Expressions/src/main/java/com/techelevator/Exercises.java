@@ -10,6 +10,9 @@ public class Exercises {
 	 sleepIn(false, true) → true
 	 */
 	public boolean sleepIn(boolean weekday, boolean vacation) {
+		if(weekday==false||vacation==true){
+			return true;
+		}
 		return false;
 	}
 
@@ -22,6 +25,12 @@ public class Exercises {
 	 monkeyTrouble(true, false) → false
 	 */
 	public boolean monkeyTrouble(boolean aSmile, boolean bSmile) {
+		if(aSmile==true&&bSmile==true){
+			return true;
+		}
+		else if (aSmile==false&&bSmile==false){
+			return true;
+		}
 		return false;
 	}
 
@@ -32,7 +41,11 @@ public class Exercises {
 	 sumDouble(2, 2) → 8
 	 */
 	public int sumDouble(int a, int b) {
-		return 0;
+		int reseulted = a +b;
+		if(a==b){
+			return (a+b)*2;
+		}
+		return reseulted;
 	}
 
 	/*
@@ -45,7 +58,10 @@ public class Exercises {
 	 diff21(-10) → 31
 	 */
 	public int diff21(int n) {
-		return 0;
+		if(n>21){
+			return 21-(n);
+		}
+		return 21-n;
 	}
 
 	/*
@@ -57,6 +73,9 @@ public class Exercises {
 	 parrotTrouble(false, 6) → false
 	 */
 	public boolean parrotTrouble(boolean talking, int hour) {
+		if(talking==true&&(hour<7||hour>20)){
+			return true;
+		}
 		return false;
 	}
 
@@ -67,6 +86,12 @@ public class Exercises {
 	 makes10(1, 9) → true
 	 */
 	public boolean makes10(int a, int b) {
+		if(a==10||b==10){
+			return true;
+		}
+		if(a+b==10){
+			return true;
+		}
 		return false;
 	}
 
@@ -78,6 +103,12 @@ public class Exercises {
 	 posNeg(-4, -5, true) → true
 	 */
 	public boolean posNeg(int a, int b, boolean negative) {
+		if ( (negative==true) && ( a<=-1 && b<=-1 )){
+			return true;
+		}
+		else if ((a>0 && b<0 )  ||  (a<=-1 && b > 0)){
+			return true;
+		}
 		return false;
 	}
 
@@ -89,6 +120,9 @@ public class Exercises {
 	 or35(8) → false
 	 */
 	public boolean or35(int n) {
+		if(n%3==0||n%5==0){
+			return true;
+		}
 		return false;
 	}
 
@@ -99,6 +133,9 @@ public class Exercises {
 	 icyHot(2, 120) → false
 	 */
 	public boolean icyHot(int temp1, int temp2) {
+		if((temp1<0&&temp2>100)||(temp1>100&&temp2<0)){
+			return true;
+		}
 		return false;
 	}
 
@@ -109,6 +146,7 @@ public class Exercises {
 	 in1020(8, 99) → false
 	 */
 	public boolean in1020(int a, int b) {
+		if
 		return false;
 	}
 
