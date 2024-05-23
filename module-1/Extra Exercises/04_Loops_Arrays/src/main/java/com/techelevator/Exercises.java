@@ -10,6 +10,11 @@ public class Exercises {
 	 firstLast6([13, 6, 1, 2, 3]) → false
 	 */
 	public boolean firstLast6(int[] nums) {
+		int first6 = nums[0];
+		int last6 = nums[nums.length-1];
+		if(first6==6||last6==6){
+			return true;
+		}
 		return false;
 	}
 
@@ -21,6 +26,13 @@ public class Exercises {
 	 sameFirstLast([1, 2, 1]) → true
 	 */
 	public boolean sameFirstLast(int[] nums) {
+		int firstOne = nums[0];
+		int lastOne = nums[nums.length-1];
+
+		if(nums.length>=1 && firstOne==lastOne){
+			return true;
+		}
+
 		return false;
 	}
 

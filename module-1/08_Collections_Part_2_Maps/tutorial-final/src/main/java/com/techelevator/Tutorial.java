@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 
@@ -27,6 +29,11 @@ public class Tutorial {
         for (Map.Entry<String, String> project : projects.entrySet()) {
             System.out.println("The key " + project.getKey() + " is linked to the value " + project.getValue());
         }
+        List<String> names = new ArrayList<String>();
+        names.add("first name");
+        names.add(0,"alioune");
+        System.out.println("please print the name, of the list "+names.get(0));
+
     }
 
 }
