@@ -41,7 +41,7 @@ public class Exercises {
 	 makePi() → [3, 1, 4]
 	 */
 	public int[] makePi() {
-		return new int[] {};
+		return new int[] {3,1,4};
 	}
 
 	/*
@@ -52,6 +52,8 @@ public class Exercises {
 	 commonEnd([1, 2, 3], [1, 3]) → true
 	 */
 	public boolean commonEnd(int[] a, int[] b) {
+		int aFirstelement = a[0];
+		int alastElement
 		return false;
 	}
 

@@ -21,8 +21,8 @@ public class Book {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	public double getPrice() {
-		return price;
+	public double getPrice(String author) {
+		return 7.8;
 	}
 	public void setPrice(double price) {
 		this.price = price;

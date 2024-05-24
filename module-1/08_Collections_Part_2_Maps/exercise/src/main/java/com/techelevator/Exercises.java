@@ -265,13 +265,30 @@ public class Exercises {
 		if(mainWarehouse==null||remoteWarehouse==null){
 			return new HashMap<>();
 		}
-		Map<String, Integer> mergeTwo = new HashMap<>();
-		Set forTEst = mainWarehouse.entrySet();
+		Map<String,Integer> placeHere = new HashMap<>();
+		for (Map.Entry<String,Integer> mainwareK: mainWarehouse.entrySet()){
+			String typeher =mainwareK.getKey();
+			Integer valueher= mainwareK.getValue();
+			placeHere.put(typeher,valueher);
+		}
+
+		for (Map.Entry<String, Integer> remoteMain: remoteWarehouse.entrySet()){
+			String keyforremote = remoteMain.getKey();
+			Integer recmm = remoteMain.getValue();
+			if(placeHere.containsKey(keyforremote)){
+				Integer removal = placeHere.get(keyforremote);
+				Integer removeertwo = remoteMain.getValue();
+				Integer counttwo = removal+removeertwo;
+				placeHere.put(keyforremote,counttwo);
+			}else {
+				placeHere.put(keyforremote,recmm);
+			}
+		}
 
 
 
 
-		return mergeTwo;
+		return placeHere;
 	}
 
 	/*

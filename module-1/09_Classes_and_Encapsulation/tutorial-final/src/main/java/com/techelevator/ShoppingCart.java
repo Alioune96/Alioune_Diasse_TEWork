@@ -17,7 +17,7 @@ public class ShoppingCart {
 	public double getTotalPrice() {
 	    double total = 0.0;
 	    for(Book book : booksToBuy) {
-	        total += book.getPrice();
+	        total += 1;
 	    }
 	    return total;
 	}

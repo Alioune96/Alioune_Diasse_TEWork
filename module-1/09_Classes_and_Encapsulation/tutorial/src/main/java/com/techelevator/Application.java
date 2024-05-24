@@ -3,9 +3,12 @@ package com.techelevator;
 public class Application {
     public static void main(String[] args) {
         System.out.println("hello world");
+
         Deck fifty = new Deck();
         Card MyCard = fifty.draw();
+        boolean cardStatus = new Card()
         fifty.shuffle();
+        System.out.println("please  flip card" +Card.flip());
 //        Card myCard = new Card("2", "hearts");
 //
 //        myCard.flip();
