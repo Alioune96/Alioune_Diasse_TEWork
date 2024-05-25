@@ -1,30 +1,35 @@
 package com.techelevator;
 
 public class Employee {
-    private int employeeId;
+   private int employeeId;
     private String firstName;
     private String lastName;
-    private String fullName;
+    private String getFirstName;
     private String department;
+
     private double annualSalary;
 
-    public Employee(int employeeId, String firstName,String lastName, double annualSalary) {
+    public Employee(int employeeId,String firstName, String lastName, double annualSalary ) {
         this.employeeId = employeeId;
+        this.firstName=firstName;
         this.lastName=lastName;
         this.annualSalary=annualSalary;
+    }
+
+    public void setLastName(String lastplease) {
+        this.lastName = lastplease;
+    }
+
+    public void setDepartment(String theyone) {
+        this.department = theyone;
     }
 
     public int getEmployeeId() {
         return employeeId;
     }
 
-    public void raiseSalary(double annualSalary){
-       double resulted = annualSalary+.05;
-       this.annualSalary=resulted;
-    }
-
-    public void getFirstName(String gether){
-        this.firstName=gether;
+    public String getFirstName() {
+        return firstName;
     }
 
     public String getLastName() {
@@ -32,13 +37,20 @@ public class Employee {
     }
 
     public String getFullName() {
-        return lastName+firstName;
+        return lastName+ ", " +firstName;
     }
 
     public String getDepartment() {
         return department;
     }
-    public void setLastName(String lastName){
-        this.lastName=lastName;
+
+    public double getAnnualSalary() {
+        return annualSalary;
+    }
+
+    public void raiseSalary(double percent){
+        double fornow = percent/100;
+        double ofcourse  = annualSalary*fornow;
+        this.annualSalary= annualSalary+ofcourse;
     }
 }

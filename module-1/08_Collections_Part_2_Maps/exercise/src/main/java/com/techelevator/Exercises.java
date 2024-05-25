@@ -308,16 +308,21 @@ public class Exercises {
 	 */
 	public Map<String, Integer> last2Revisited(String[] words) {
 		Map<String,Integer> countA = new HashMap<String, Integer>();
+		Integer count = 1;
 		for (String listenpal: words){
 			String lasttwo = listenpal.substring(listenpal.length()-2);
 			for (int i = 0; i < listenpal.length()-2 ; i++) {
 					String firsttow = listenpal.substring(i,i++);
-					if(lasttwo.equals(firsttow)){
-						System.out.println(countA);
-						countA.put(firsttow,1);
+					if(lasttwo.contains(firsttow)){
+
+						countA.put(listenpal,count);
+					}
+					else {
+						Integer resutled = countA.get(listenpal);
+
+						countA.put(listenpal,count+=resutled);
 					}
 			}
-			countA.put(listenpal,1);
 		}
 
 		return countA;
