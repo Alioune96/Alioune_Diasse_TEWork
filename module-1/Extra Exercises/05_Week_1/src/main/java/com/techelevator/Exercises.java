@@ -9,7 +9,14 @@ public class Exercises {
 	 arrayCount9([1, 9, 9, 3, 9]) → 3
 	 */
 	public int arrayCount9(int[] nums) {
-		return 0;
+		int countAmount = 0;
+		for (int i = 0; i < nums.length; i++) {
+			if(nums[i]==9){
+				countAmount+=1;
+			}
+
+		}
+		return countAmount;
 	}
 
 	/*
@@ -19,8 +26,19 @@ public class Exercises {
 	 arrayFront9([1, 2, 3, 4, 5]) → false
 	 */
 	public boolean arrayFront9(int[] nums) {
-		return false;
-	}
+		if (nums.length > 4) {
+			if (nums[0] == 9 || nums[1] == 9 || nums[2] == 9 || nums[3] == 9) {
+				return true;
+			}
+		}
+		if (nums.length < 4) {
+			for (int i = 0; i < nums.length; i++) {
+				if (nums[i] == 9) {
+					return true;
+				}
+			}
+		}
+	return false;}
 
 	/*
 	 3. Given an array of ints, return true if .. 1, 2, 3, .. appears in the array somewhere.
@@ -29,6 +47,19 @@ public class Exercises {
 	 array123([1, 1, 2, 1, 2, 3]) → true
 	 */
 	public boolean array123(int[] nums) {
+		if(nums.length<3){
+			return false;
+		}
+
+		for (int i = 0; i < nums.length-1; i++) {
+			if(nums[i]==1){
+				if(nums[i+1]==2){
+					if(nums[i+2]==3){
+						return true;
+					}
+				}
+			}
+		}
 		return false;
 	}
 
@@ -40,7 +71,19 @@ public class Exercises {
 	 noTriples([1, 1, 1, 2, 2, 2, 1]) → false
 	 */
 	public boolean noTriples(int[] nums) {
-		return false;
+		if(nums.length<3){
+			return true;
+		}
+		for (int i = 0; i < nums.length-1; i++) {
+			if(nums[i]==nums[i+1]){
+				if(nums[i+1]==nums[i+2]){
+					return false;
+				}
+
+			}
+
+		}
+		return true;
 	}
 
 	/*
@@ -51,7 +94,9 @@ public class Exercises {
 	 makeEnds([7, 4, 6, 2]) → [7, 2]
 	 */
 	public int[] makeEnds(int[] nums) {
-		return new int[] {};
+
+
+		return new int[]{nums[0],nums[nums.length-1]};
 	}
 
 	/*
@@ -61,6 +106,14 @@ public class Exercises {
 	 has23([4, 5]) → false
 	 */
 	public boolean has23(int[] nums) {
+		int firstFalse = 2;
+		int secondFalse = 3;
+		for (int i = 0; i < nums.length; i++) {
+			if(nums[i]==firstFalse||nums[i]==secondFalse){
+				return true;
+			}
+
+		}
 		return false;
 	}
 
@@ -71,7 +124,15 @@ public class Exercises {
 	 no23([3, 5]) → false
 	 */
 	public boolean no23(int[] nums) {
-		return false;
+		int firstfalse = 2;
+		int secondfalse = 3;
+		for (int i = 0; i < nums.length; i++) {
+			if(nums[i]==firstfalse||nums[i]==secondfalse){
+				return false;
+			}
+
+		}
+		return true;
 	}
 
 	/*
@@ -83,7 +144,10 @@ public class Exercises {
 	 makeLast([3]) → [0, 3]
 	 */
 	public int[] makeLast(int[] nums) {
-		return new int[] {};
+		int count0 = 0;
+		int [] newArray = new int[nums.length+nums.length];
+		newArray[newArray.length-1]=nums[nums.length-1];
+		return newArray;
 	}
 
 	/*
@@ -93,6 +157,7 @@ public class Exercises {
 	 double23([2, 3]) → false
 	 */
 	public boolean double23(int[] nums) {
+
 		return false;
 	}
 
