@@ -13,8 +13,8 @@ public class CheckingAccount extends BankAccount {
     @Override
     public int withdraw(int amountToWithdraw) {
         int currenthold = getBalance()-amountToWithdraw;
-        if(amountToWithdraw>100){
-            return super.getBalance();
+        if(currenthold>100){
+            return super.balance;
         }
         if(currenthold<0  && currenthold>=-100){
             return super.withdraw(amountToWithdraw+10);
