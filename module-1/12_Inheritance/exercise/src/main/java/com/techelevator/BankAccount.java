@@ -25,7 +25,7 @@ public class BankAccount {
 
     public int withdraw(int amountToWithdraw){
         if(amountToWithdraw<0){
-            return 0;
+            return balance;
         }
         return this.balance = balance-amountToWithdraw;
     }
