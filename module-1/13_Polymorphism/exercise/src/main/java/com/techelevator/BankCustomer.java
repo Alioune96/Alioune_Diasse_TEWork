@@ -19,7 +19,6 @@ public class BankCustomer {
 
     public void addAccount(Accountable newAccount){
         accounts.add(newAccount);
-        this.accounts=accounts;
     }
 
     public void setName(String name) {
@@ -47,13 +46,14 @@ public class BankCustomer {
     }
 
     public boolean isVip(){
-        for (Accountable x : accounts){
-            ;
-            if(x.getBalance()<0){
-                return false;
-            }
-
+       int total = 0;
+        for (Accountable x: accounts){
+            total+=x.getBalance();
         }
+        if(total>=25000){
+            return true;
+        }
+
 return false;
     }
 

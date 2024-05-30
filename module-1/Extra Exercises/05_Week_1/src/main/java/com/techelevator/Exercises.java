@@ -157,6 +157,15 @@ public class Exercises {
 	 double23([2, 3]) → false
 	 */
 	public boolean double23(int[] nums) {
+		if(nums.length<=1){
+			return false;
+		}
+		if(nums[0]==2 && nums[nums.length-1]==2){
+			return true;
+		}
+		if(nums[0]==3 && nums[nums.length-1]==3){
+			return true;
+		}
 
 		return false;
 	}
@@ -169,7 +178,12 @@ public class Exercises {
 	 fix23([1, 2, 1]) → [1, 2, 1]
 	 */
 	public int[] fix23(int[] nums) {
-		return new int[] {};
+		for (int i = 0; i <nums.length ; i++) {
+			if(nums[i]==2 && nums[i+1]==3){
+				nums[i+1]=0;
+			}
+		}
+		return nums;
 	}
 
 	/*
@@ -179,6 +193,7 @@ public class Exercises {
 	 start1([1, 2], []) → 1
 	 */
 	public int start1(int[] a, int[] b) {
+		int countHER = 0;
 		return 0;
 	}
 
