@@ -1,6 +1,5 @@
 package com.techelevator;
 
-public interface Accountable  {
-
-
+public interface Accountable {
+    int getBalance();
 }

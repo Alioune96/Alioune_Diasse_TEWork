@@ -46,7 +46,13 @@ public class BankAccount implements Accountable {
 
     public int transferFunds(BankAccount destinationAccount, int amountToTransfer){
         withdraw(amountToTransfer);
-        return destinationAccount.balance = balance+ amountToTransfer;
+        if(amountToTransfer>balance){
+            return balance;
+        }
+        destinationAccount.deposit(amountToTransfer);
+
+
+        return balance;
     }
 
 }
