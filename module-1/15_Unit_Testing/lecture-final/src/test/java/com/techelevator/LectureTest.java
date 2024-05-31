@@ -64,16 +64,17 @@ public class LectureTest {
 		/* The assertEquals method validates that two values are equal and
 		 * fails the test if they are not equal */
 
-		String theString = "Java"; // Arrange
+		String theString = "JavaScript"; // Arrange
 		int length = theString.length(); // Act
-		Assert.assertEquals(4, length); // Assert
+
+		Assert.assertEquals(10, length); // Assert
 	}
 
 	@Test
 	public void startsWith_returns_true_if_a_string_starts_with_the_specified_characters() {
 		System.out.println("startsWith_returns_true_if_a_string_starts_with_the_specified_characters"); // FOR DEMONSTRATION PURPOSES ONLY, don't do this in your own tests
 
-		/* The assertTrue method validates that the boolean value provided as an arugment
+		/* The assertTrue method validates that the boolean value provided as an argument
 		 * is true and fails the test if it is false. */
 
 		String theString = "Hello World!"; // Arrange
@@ -85,7 +86,7 @@ public class LectureTest {
 		 * This is particularly helpful with assertTrue as otherwise the failure output would simply
 		 * state "Expected: true Actual: false", which sometimes isn't much help in figuring out
 		 * what went wrong */
-		Assert.assertTrue("String did not start with Hello as expected.", startsWithHello); // Assert
+		Assert.assertTrue("This test failed because of x,y,z", startsWithHello); // Assert
 	}
 
 	@Test
@@ -97,7 +98,10 @@ public class LectureTest {
 		Assert.fail("This is how I can force a test to fail");
 	}
 
+	@Test
 	public void this_method_is_not_a_test_because_it_does_not_have_the_Test_annotation() {
 		// This method will not be run by Junit, because it's not a test
+		System.out.println("Hello World!");
 	}
+
 }
