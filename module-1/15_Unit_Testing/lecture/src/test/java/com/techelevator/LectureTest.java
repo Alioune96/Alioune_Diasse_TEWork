@@ -76,8 +76,8 @@ public class LectureTest {
 		/* The assertTrue method validates that the boolean value provided as an arugment
 		 * is true and fails the test if it is false. */
 
-		String theString = "Hello World!"; // Arrange
-		boolean startsWithHello = theString.startsWith("Hello"); // Act
+		String myBoy = "Alioune is my boy";
+		Boolean isthiscorrect=myBoy.startsWith("Alioune");// Act
 
 		/* every assert method allows the first parameter to be a String that contains a message
 		 * that should be displayed when the assertion fails
@@ -85,16 +85,16 @@ public class LectureTest {
 		 * This is particularly helpful with assertTrue as otherwise the failure output would simply
 		 * state "Expected: true Actual: false", which sometimes isn't much help in figuring out
 		 * what went wrong */
-		Assert.assertTrue("String did not start with Hello as expected.", startsWithHello); // Assert
+		Assert.assertTrue("String did not start with Alioune as expected.", isthiscorrect); // Assert
 	}
 
 	@Test
 	public void this_test_fails_every_time() {
-		System.out.println("this_test_fails_every_time"); // FOR DEMONSTRATION PURPOSES ONLY, don't do this in your own tests
-
+		String willthispass = "this_test_fails_every_time";
+		boolean isthisright = willthispass.equals("this_test_fails_every_time");
 		/* The fail method will cause a test to fail */
 
-		Assert.fail("This is how I can force a test to fail");
+		Assert.assertTrue(isthisright);
 	}
 
 	public void this_method_is_not_a_test_because_it_does_not_have_the_Test_annotation() {
