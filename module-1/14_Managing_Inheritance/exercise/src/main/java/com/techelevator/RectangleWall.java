@@ -2,7 +2,7 @@ package com.techelevator;
 
 public class RectangleWall extends Wall{
     private int length;
-    private int height;
+   private int height;
 
     public RectangleWall(String name, String color, int length, int height) {
         super(name, color);
@@ -18,7 +18,7 @@ public class RectangleWall extends Wall{
 
     @Override
     public String toString(){
-        return "hi";
+        return super.getName() +" ("+getLength() + "x" + getHeight() + ") " + "rectangle" ;
     }
 
     public int getLength() {
