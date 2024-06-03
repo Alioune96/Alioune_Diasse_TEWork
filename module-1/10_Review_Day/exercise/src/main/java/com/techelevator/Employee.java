@@ -5,7 +5,7 @@ public class Employee {
     private String firstName;
     private String lastName;
     private String email;
-    private static double salary = 60000.00;
+    private double salary;
     private Department department;
     private String hireDate;
 
@@ -16,6 +16,8 @@ public class Employee {
         this.email = email;
         this.department = department;
         this.hireDate = hireDate;
+        salary = 60000.00;
+
     }
 
     public Employee(){
@@ -29,7 +31,7 @@ public class Employee {
     public double raiseSalary(double percent){
         double divided = percent/100;
         double multiplePart = salary*divided;
-        return salary + multiplePart;
+        return this.salary += multiplePart;
     }
 
 
@@ -50,7 +52,7 @@ public class Employee {
         return email;
     }
 
-    public static double getSalary() {
+    public double getSalary() {
         return salary;
     }
 
@@ -78,8 +80,8 @@ public class Employee {
         this.email = email;
     }
 
-    public static void setSalary(double salary) {
-        Employee.salary = salary;
+    public void setSalary(double salary) {
+        this.salary = salary;
     }
 
     public void setDepartment(Department department) {
