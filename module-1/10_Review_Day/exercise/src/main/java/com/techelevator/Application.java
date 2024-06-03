@@ -1,6 +1,10 @@
 package com.techelevator;
 
+import java.util.List;
+
 public class Application {
+
+    private List<Department> departments;
 
     /**
      * The main entry point in the application
@@ -13,7 +17,7 @@ public class Application {
 
     private void run() {
         // create some departments
-        createDepartments();
+        createDepartments("Marketing", );
 
         // print each department by name
         printDepartments();
