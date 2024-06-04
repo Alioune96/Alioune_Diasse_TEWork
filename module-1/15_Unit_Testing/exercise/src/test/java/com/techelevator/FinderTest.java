@@ -56,10 +56,6 @@ public class FinderTest {
         }
        int resulted = helloBud.findLargest(couunt);
         Assert.assertEquals(3, resulted );
-        Assert.assertEquals(6, resulted );
-        Assert.assertEquals(9, resulted );
-        Assert.assertEquals(12, resulted );
-        Assert.assertEquals(15, resulted );
 
 
     }
