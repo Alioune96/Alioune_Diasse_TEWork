@@ -193,7 +193,23 @@ public class Exercises {
 	 start1([1, 2], []) → 1
 	 */
 	public int start1(int[] a, int[] b) {
-		int countHER = 0;
+
+		if (a.length <= 0 && b.length <= 0) {
+			return 0;
+		} else if (a.length<=0 || b.length<=0) {
+			return 0;
+
+		} else if () {
+			
+		} else if ((a[0] == 1 && b[0] == 1)) {
+			return 2;
+		} else{
+			if(a[0]==1 || b[0]==1){
+				return 1;
+			}
+		}
+
+
 		return 0;
 	}
 

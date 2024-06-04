@@ -25,5 +25,17 @@ public class StringBitsTest {
         Assert.assertEquals(lastWord,signalCall.getBits(firstWord));
     }
 
+    @Test
+    public void findifmethodtoo(){
+        String firstWord = "jameswith";
+        String emptyWord = "";
+        for (int i = 0; i < firstWord.length(); i++) {
+            if(i%2==0){
+                emptyWord+=firstWord.charAt(i);
+            }
+        }
+        Assert.assertEquals(emptyWord,signalCall.getBits(firstWord));
+    }
+
 
 }
