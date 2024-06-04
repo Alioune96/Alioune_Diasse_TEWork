@@ -1,6 +1,7 @@
 package com.techelevator;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
@@ -61,8 +62,29 @@ public class FizzWriter {
      * @throws IOException thrown if file could not be read, written, or other related error
      */
     public void writeFizzBuzzFile(File destinationFile, int startNumber, int endNumber, String fizzValue, String buzzValue) throws IOException {
+            PrintWriter forWriting = new PrintWriter(destinationFile);
+            while (startNumber <= endNumber) {
+                if (startNumber % 3 == 0 & startNumber % 5 == 0) {
+                    forWriting.println(fizzValue + buzzValue);
+                } else if (startNumber % 3 == 0) {
+                    forWriting.println(fizzValue);
+                } else if (startNumber % 5 == 0) {
+                    forWriting.println(buzzValue);
+                } else {
+                    forWriting.println(startNumber);
+                }
+                startNumber += 1;
+            }
+            forWriting.flush();
+            forWriting.close();
+        }
 
-	}
+
+
+
+
+
+
 
     /**
      * Validates that provided path exists (at least up to the containing directory) and file extension is ".txt".

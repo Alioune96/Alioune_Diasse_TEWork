@@ -66,6 +66,15 @@ public class FindAndReplace {
      * @throws IOException thrown if file could not be read, written, or other related error
      */
     public void writeReplacedTextFile(File sourceFile, File destinationFile, String searchTerm, String replacementTerm) throws IOException {
+        Scanner grabber = new Scanner(sourceFile);
+        PrintWriter fencher = new PrintWriter(destinationFile);
+        while(grabber.hasNext()){
+            String oneinScanner = grabber.nextLine();
+            String replaceNow = oneinScanner.replace(searchTerm,replacementTerm);
+            fencher.println(replaceNow);
+        }
+        fencher.flush();
+        fencher.close();
 
     }
 
