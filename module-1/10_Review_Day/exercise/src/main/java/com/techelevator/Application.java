@@ -151,6 +151,7 @@ public class Application {
         for (Map.Entry keeper: secondForPrint.entrySet()){
             System.out.println(keeper.getKey() + ": "+ keeper.getValue());
         }
+
         }
 
     }
