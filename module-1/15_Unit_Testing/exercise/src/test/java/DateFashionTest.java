@@ -73,15 +73,17 @@ public class DateFashionTest {
     @Test
 
     public void nowTestWithHigherNumberButSecond() {
-        int largestAmount = 10;
-        int userInput = 8;
-        int secondinput = 8;
-        while (secondinput < largestAmount) {
-            secondinput--;
-        }
-        int resultred = fortestOnly.getATable(userInput, secondinput);
 
-        Assert.assertEquals(2, resultred);
+        Assert.assertEquals(2, fortestOnly.getATable(8,8));
+        Assert.assertEquals(2, fortestOnly.getATable(8,9));
+        Assert.assertEquals(2, fortestOnly.getATable(9,9));
+        Assert.assertEquals(2, fortestOnly.getATable(10,9));
+        Assert.assertEquals(2, fortestOnly.getATable(10,10));
+        Assert.assertEquals(2, fortestOnly.getATable(8,8));
+
+
+
+
     }
 
     @Test
