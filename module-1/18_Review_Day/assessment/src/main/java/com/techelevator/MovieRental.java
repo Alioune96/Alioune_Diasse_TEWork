@@ -4,7 +4,7 @@ public class MovieRental {
     private String title;
     private String format;
     private boolean ispremiummovie;
-    private int rentalPrice;
+    private double rentalPrice;
 
 
     public MovieRental(String title, String format, boolean ispremiummovie) {
@@ -12,6 +12,9 @@ public class MovieRental {
         this.format = format;
         this.ispremiummovie = ispremiummovie;
 
+    }
+
+    public MovieRental() {
     }
 
     @Override
@@ -42,6 +45,7 @@ public class MovieRental {
         return title;
     }
 
+
     public void setTitle(String title) {
         this.title = title;
     }
@@ -62,11 +66,19 @@ public class MovieRental {
         this.ispremiummovie = ispremiummovie;
     }
 
-    public int getRentalPrice() {
+    public double getRentalPrice() {
         return rentalPrice;
     }
 
-    public void setRentalPrice(int rentalPrice) {
-        this.rentalPrice = rentalPrice;
+    public void setRentalPrice(String format) {
+        if (format.contains("VHS")) {
+            this.rentalPrice = .99;
+        }
+        if (format.contains("DVD")) {
+            this.rentalPrice = 1.99;
+        }
+        if (format.contains("BluRay")) {
+            this.rentalPrice = 2.99;
+        }
     }
 }
