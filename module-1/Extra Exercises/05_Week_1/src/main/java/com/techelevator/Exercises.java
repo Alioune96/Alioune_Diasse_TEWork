@@ -327,6 +327,19 @@ public class Exercises {
 	 has12([3, 1, 4, 5, 2]) → true
 	 */
 	public boolean has12(int[] nums) {
+		int countHer = 0;
+		for (int i = 0; i < nums.length ; i++) {
+			if(nums[i]==1){
+				for (int j = i; j < nums.length ; j++) {
+					if(nums[j]==2){
+						countHer+=2;
+					}
+				}
+			}
+		}
+		if(countHer==2){
+			return true;
+		}
 		return false;
 	}
 
