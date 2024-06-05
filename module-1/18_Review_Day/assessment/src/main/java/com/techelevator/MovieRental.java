@@ -19,6 +19,21 @@ public class MovieRental {
         return "Movie: "+ getTitle()+ " - "+" Format: "+getFormat()+ " - "+ " Price: "+ getRentalPrice();
     }
 
+    public double lateCharge(int daysLate){
+        if(daysLate==0){
+            return 0;
+        }
+        if(daysLate==1){
+            return 1.99;
+        }
+        if(daysLate==2){
+            return 3.99;
+        }else{
+            return 19.99;
+        }
+
+    }
+
 
 
 

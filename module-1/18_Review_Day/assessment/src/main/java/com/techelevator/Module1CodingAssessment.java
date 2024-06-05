@@ -21,10 +21,11 @@ public class Module1CodingAssessment {
 
 	}
 
-	public static void printMovieList(List<MovieRental>takerHer){
+	public static void printMovieList(List<MovieRental> takerHer){
 		for (int i = 0; i < takerHer.size() ; i++) {
-			takerHer.get(i).toString();
+			System.out.println(takerHer.get(i).toString());
 		}
+
 
 	}
 
