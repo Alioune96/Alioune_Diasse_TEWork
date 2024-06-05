@@ -14,6 +14,11 @@ public class MovieRental {
 
     }
 
+    @Override
+    public String toString(){
+        return "Movie: "+ getTitle()+ " - "+" Format: "+getFormat()+ " - "+ " Price: "+ getRentalPrice();
+    }
+
 
 
 

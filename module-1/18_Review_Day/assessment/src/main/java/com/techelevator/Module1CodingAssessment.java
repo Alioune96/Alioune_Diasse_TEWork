@@ -15,6 +15,16 @@ public class Module1CodingAssessment {
 		allMovies.add(firstOne);
 		allMovies.add(secondOne);
 		allMovies.add(thirdOne);
+		printMovieList(allMovies);
+
+
+
+	}
+
+	public static void printMovieList(List<MovieRental>takerHer){
+		for (int i = 0; i < takerHer.size() ; i++) {
+			takerHer.get(i).toString();
+		}
 
 	}
 
