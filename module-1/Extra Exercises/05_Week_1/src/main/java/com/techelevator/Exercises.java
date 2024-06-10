@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import java.util.*;
+
 public class Exercises {
 
 	/*
@@ -193,24 +195,25 @@ public class Exercises {
 	 start1([1, 2], []) → 1
 	 */
 	public int start1(int[] a, int[] b) {
+		int countNA = 0;
 
 		if (a.length <= 0 && b.length <= 0) {
-			return 0;
+			return countNA;
 		} else if (a.length<=0 || b.length<=0) {
-			return 0;
+			return countNA;
 
 		}
-			
+
 		else if ((a[0] == 1 && b[0] == 1)) {
-			return 2;
-		} else{
-			if(a[0]==1 || b[0]==1){
-				return 1;
+			 countNA+=2;
+		}else {
+			if (a[0] == 1 || b[0] == 1) {
+				countNA+=1;
 			}
 		}
 
 
-		return 0;
+		return countNA;
 	}
 
 	/*
@@ -232,7 +235,15 @@ public class Exercises {
 	 makeMiddle([1, 2]) → [1, 2]
 	 */
 	public int[] makeMiddle(int[] nums) {
-		return new int[] {};
+
+		if(nums.length==2){
+			return nums;
+		}
+		int getterFirst = nums.length/2;
+		int secondGetter = (nums.length/2)-1;
+		int firstHalf = nums[secondGetter];
+		int secondHalf = nums[getterFirst];
+		return new int[] {firstHalf,secondHalf};
 	}
 
 	/*
@@ -352,7 +363,18 @@ public class Exercises {
 	 fizzArray3(1, 3) → [1, 2]
 	 */
 	public int[] fizzArray3(int start, int end) {
-		return new int[] {};
+		if(start<1 && end<1){
+			return new int[]{};
+		}
+		int foArray = end-start;
+		int []newArray = new int[foArray];
+
+		for (int i = 0; start <end ; i++) {
+			newArray[i]=start;
+			start+=1;
+		}
+
+	return newArray;
 	}
 
 	/*
@@ -362,6 +384,16 @@ public class Exercises {
 	 lessBy10(11, 1, 7) → true
 	 */
 	public boolean lessBy10(int a, int b, int c) {
+		int fistcase = c-a;
+		int secondcase = c-b;
+		int thirdcase = b-a;
+		int fourcase = b-c;
+		int fivecase = a-b;
+		int sixcase = a-c;
+		if(fistcase>=10||secondcase>=10||thirdcase>=10||fourcase>=10||fivecase>=10||sixcase>=10){
+			return true;
+		}
+
 		return false;
 	}
 

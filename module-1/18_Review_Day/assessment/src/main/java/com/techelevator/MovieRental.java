@@ -1,37 +1,47 @@
 package com.techelevator;
 
 public class MovieRental {
+
     private String title;
     private String format;
-    private boolean ispremiummovie;
+    private boolean isPremiumMovie;
     private double rentalPrice;
 
-
-    public MovieRental(String title, String format, boolean ispremiummovie) {
+    public MovieRental(String title, String format, boolean isPremiumMovie) {
         this.title = title;
         this.format = format;
-        this.ispremiummovie = ispremiummovie;
-
+        this.isPremiumMovie = isPremiumMovie;
     }
 
-    public MovieRental() {
+
+    public double getRentalPrice(){
+        double storeTotal = 0;
+        if(getFormat()=="VHS"){
+            storeTotal+=.99;
+        }
+        else if(format.contains("Blu-Ray")){
+            storeTotal+=2.99;
+        }
+        else if (format.contains("DVD")) {
+            storeTotal+=1.99;
+
+        }
+        if(isPremiumMovie==true){
+            storeTotal+=1;
+        }
+
+        return storeTotal;
     }
 
-    @Override
-    public String toString(){
-        return "Movie: "+ getTitle()+ " - "+" Format: "+getFormat()+ " - "+ " Price: "+ getRentalPrice();
-    }
 
-    public double lateCharge(int daysLate){
+    public double MovieLateFee(int daysLate){
         if(daysLate==0){
             return 0;
-        }
-        if(daysLate==1){
+        } else if (daysLate==1) {
             return 1.99;
-        }
-        if(daysLate==2){
+        } else if (daysLate==2) {
             return 3.99;
-        }else{
+        }else {
             return 19.99;
         }
 
@@ -41,44 +51,34 @@ public class MovieRental {
 
 
 
-    public String getTitle() {
-        return title;
-    }
 
+
+@Override
+public String toString(){
+        return "Movie: "+getTitle() + " - "+ "Format: "+ getFormat()+ " - "+ "Price: "+ getRentalPrice();
+}
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getFormat() {
-        return format;
     }
 
     public void setFormat(String format) {
         this.format = format;
     }
 
-    public boolean isIspremiummovie() {
-        return ispremiummovie;
+    public void setPremiumMovie(boolean premiumMovie) {
+        isPremiumMovie = premiumMovie;
     }
 
-    public void setIspremiummovie(boolean ispremiummovie) {
-        this.ispremiummovie = ispremiummovie;
+    public String getTitle() {
+        return title;
     }
 
-    public double getRentalPrice() {
-        return rentalPrice;
+    public String getFormat() {
+        return format;
     }
 
-    public void setRentalPrice(String format) {
-        if (format.contains("VHS")) {
-            this.rentalPrice = .99;
-        }
-        if (format.contains("DVD")) {
-            this.rentalPrice = 1.99;
-        }
-        if (format.contains("BluRay")) {
-            this.rentalPrice = 2.99;
-        }
+    public boolean isPremiumMovie() {
+        return isPremiumMovie;
     }
 }
