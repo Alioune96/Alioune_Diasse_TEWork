@@ -2,3 +2,6 @@
 -- Order the results alphabetically (A-Z) by city.
 -- (6 rows)
 
+SELECT city_name, population FROM CITY
+WHERE state_abbreviation = 'OH';
+
