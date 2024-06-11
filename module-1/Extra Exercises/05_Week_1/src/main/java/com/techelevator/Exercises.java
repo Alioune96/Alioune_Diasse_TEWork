@@ -253,7 +253,28 @@ public class Exercises {
 	 plusTwo([9, 2], [3, 4]) → [9, 2, 3, 4]
 	 */
 	public int[] plusTwo(int[] a, int[] b) {
-		return new int[] {};
+		int []justCuz = new int [a.length+b.length];
+		int i = 0;
+		int j = 0;
+		int countHer = 0;
+		while(countHer<5){
+			if(i==4){
+				break;
+			}
+			if(i>1){
+
+				countHer++;
+				justCuz[i]=b[j];
+				j++;
+				i++;
+
+			}else {
+				justCuz[i] = a[i];
+				i++;
+				countHer++;
+			}
+		}
+		return justCuz;
 	}
 
 	/*
@@ -264,7 +285,21 @@ public class Exercises {
 	 swapEnds([8, 6, 7, 9, 5]) → [5, 6, 7, 9, 8]
 	 */
 	public int[] swapEnds(int[] nums) {
-		return new int[] {};
+		if(nums.length<=1){
+			return nums;
+		}
+		int [] comeONmanTOOOEAZYYYY = new int[nums.length] ;
+		for (int i = 0; i < nums.length ; i++) {
+			if(i==0){
+				comeONmanTOOOEAZYYYY[i]=nums[nums.length-1];
+			} else {
+				comeONmanTOOOEAZYYYY[i] = nums[i];
+				if (i+1== nums.length) {
+					comeONmanTOOOEAZYYYY[i] = nums[0];
+				}
+			}
+		}
+		return comeONmanTOOOEAZYYYY;
 	}
 
 	/*
@@ -287,6 +322,9 @@ public class Exercises {
 	 fizzArray(10) → [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 	 */
 	public int[] fizzArray(int n) {
+
+		String n = "haha";
+		n.toLowerCase()
 		return new int[] {};
 	}
 
