@@ -1,4 +1,9 @@
 -- 1. The titles and release dates of movies that Tom Hanks has appeared in.
 -- Order the results by release date, newest to oldest.
 -- (47 rows)
+SELECT m.title, m.release_date FROM movie AS m
+JOIN movie_actor AS ma ON m.movie_id = ma.movie_id
+JOIN person as p ON ma.actor_id = p.person_id
+WHERE p.person_name = 'Tom Hanks'
+ORDER BY m.release_date DESC;
 
