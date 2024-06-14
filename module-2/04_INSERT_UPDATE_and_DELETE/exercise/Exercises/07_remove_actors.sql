@@ -3,9 +3,13 @@
 
 
 
-UPDATE movie_actor 
-SET actor_id = null
+DELETE FROM movie_actor
 WHERE actor_id in (SELECT actor_id FROM movie_actor as ma
 JOIN movie AS m ON ma.movie_id = m.movie_id
 WHERE m.title = 'Avengers: Infinity War');
 
+
+/*
+DELETE FROM movie_actor
+WHERE movie_id in (SELECT movie_id FROM movie AS m WHERE m.title = 'Avengers: Infinity War');
+*/

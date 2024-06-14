@@ -137,19 +137,36 @@ public class Exercises {
     * has271([2, 7, 1]) → true
     */
     public boolean has271(int[] nums) {
+
+        List<Integer> trythis = new ArrayList<>();
+        for (int i = 0; i < nums.length ; i++) {
+            trythis.add(nums[i]);
+        }
+
+                int forResult = 14;
         int total = 0;
-        for (int i = 0; i < nums.length-1; i++) {
-            if(nums[i]==2){
-                if(nums[i+1]==7){
-                    if(nums[i+2]==1){
+        for (int i = 0; i < trythis.size(); i++) {
+            if(trythis.get(i)==2){
+                for (int j = i; j <trythis.size() ; j++) {
+                    if (trythis.get(i)==)
+                }
+                if(trythis.get(i+1)==7){
+
+                    if(trythis.get(i+2)==1){
                         return true;
                     }
                 }
             }
-            total+=nums[i];
+            total+=trythis.get(i);
         }
-        
+        if(total+1==forResult){
+            return true;
+        }
 
+
+        if(total-1==forResult){
+            return true;
+        }
 
 
         return false;
