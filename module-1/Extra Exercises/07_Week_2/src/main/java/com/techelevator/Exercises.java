@@ -60,17 +60,6 @@ public class Exercises {
     blackjack(19, 22) → 19
     */
     public int blackjack(int a, int b) {
-        int c =21;
-        int close = closeFar(a,b,c);
-        if(a==21||b==21){
-            return 21;
-        }
-        else if(a==19||b==19){
-            return 19;
-        }
-        else if((a>21&&b<21)||(b>21&&a<21)){
-            return 1;
-        }
 
 
         return 0;
@@ -85,6 +74,12 @@ public class Exercises {
     closeFar(4, 1, 3) → true
     */
     public boolean closeFar(int a, int b, int c) {
+        if(a>b ){
+
+        }
+
+
+
         return false;
     }
 
@@ -96,7 +91,14 @@ public class Exercises {
     countClumps([1, 1, 1, 1, 1]) → 1
     */
     public int countClumps(int[] nums) {
-        return 0;
+        for (int i = 0; i < nums.length ; i++) {
+            if(nums[i]==2){
+                return 2;
+            }
+        }
+
+
+        return nums[nums.length-1];
     }
 
     /*
@@ -135,6 +137,21 @@ public class Exercises {
     * has271([2, 7, 1]) → true
     */
     public boolean has271(int[] nums) {
+        int total = 0;
+        for (int i = 0; i < nums.length-1; i++) {
+            if(nums[i]==2){
+                if(nums[i+1]==7){
+                    if(nums[i+2]==1){
+                        return true;
+                    }
+                }
+            }
+            total+=nums[i];
+        }
+        
+
+
+
         return false;
     }
 
