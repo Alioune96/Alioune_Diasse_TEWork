@@ -49,7 +49,21 @@ public class Exercises {
     arraySort([8, 13, 9, 12]) → [8, 9, 12, 13]        
     */
     public int[] arraySort(int[] nums) {
-        return null;
+        List<Integer> takeOUt = new ArrayList<>();
+        for (int i = 0; i < nums.length-1; i+=2) {
+            int firstHalf = Math.min(nums[i],nums[i+1]);
+            System.out.println(firstHalf);
+            takeOUt.add(firstHalf);
+        }
+
+
+
+        int [] changeAgain = new int[takeOUt.size()];
+        for (int i = 0; i < takeOUt.size() ; i++) {
+            changeAgain[i]= takeOUt.get(i);
+        }
+
+        return changeAgain;
     }
 
     /*
@@ -137,34 +151,25 @@ public class Exercises {
     * has271([2, 7, 1]) → true
     */
     public boolean has271(int[] nums) {
-
-        List<Integer> trythis = new ArrayList<>();
-        for (int i = 0; i < nums.length ; i++) {
-            trythis.add(nums[i]);
-        }
-
-                int forResult = 14;
         int total = 0;
-        for (int i = 0; i < trythis.size(); i++) {
-            if(trythis.get(i)==2){
-                for (int j = i; j <trythis.size() ; j++) {
-                    if (trythis.get(i)==)
-                }
-                if(trythis.get(i+1)==7){
-
-                    if(trythis.get(i+2)==1){
-                        return true;
-                    }
-                }
+        List<Integer>haha = new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            haha.add(nums[i]);
+        }
+        for (int i = 0; i <haha.size()-1 ; i++) {
+            if(haha.get(i)==2 && haha.get(i+1)==7 && haha.get(i+2)==1){
+                return true;
             }
-            total+=trythis.get(i);
         }
-        if(total+1==forResult){
+        for (int i = 0; i < haha.size() ; i++) {
+            if (haha.get(i) != 2 || haha.get(i) != 7 || haha.get(i) != 1) {
+                total += haha.get(i);
+            }
+        }
+
+        if(total+1==14 || total +2== 14 ){
             return true;
-        }
-
-
-        if(total-1==forResult){
+        } else if (total-1==14) {
             return true;
         }
 

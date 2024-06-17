@@ -1,13 +1,16 @@
 package com.techelevator;
 
-public class CityFORTEST {
+import java.sql.SQLException;
+import java.util.List;
+
+public class CityForTEST {
     private int city_id;
     private String city_name;
     private String state_abbreviation;
     private int population;
     private double area;
 
-    public CityFORTEST(int city_id, String city_name, String state_abbreviation, int population, double area) {
+    public CityForTEST(int city_id, String city_name, String state_abbreviation, int population, double area) {
         this.city_id = city_id;
         this.city_name = city_name;
         this.state_abbreviation = state_abbreviation;
@@ -54,4 +57,6 @@ public class CityFORTEST {
     public void setArea(double area) {
         this.area = area;
     }
+
+
 }
