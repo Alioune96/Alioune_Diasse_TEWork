@@ -64,7 +64,7 @@ public class SocialMediaimpl implements SocialMediaDOA{
         int count = 0;
         String sqlStuff = "UPDATE userinformation SET first_name = ?, last_name = ?, account_handle = ?, age = ?, address = ? WHERE person_id = ?;";
         try {
-            int mycase = changeToTemplate.update(sqlStuff,int.class,change,again,againtwo,ann,againthree, id);
+            int mycase = changeToTemplate.update(sqlStuff,change,again,againtwo,ann,againthree, id);
             count = mycase;
 
         }catch(CannotGetJdbcConnectionException e) {

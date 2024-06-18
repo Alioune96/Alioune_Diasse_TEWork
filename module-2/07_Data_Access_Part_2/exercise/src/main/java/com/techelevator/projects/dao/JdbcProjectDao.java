@@ -28,12 +28,16 @@ public class JdbcProjectDao implements ProjectDao {
 		Project project = null;
 		String sql = PROJECT_SELECT +
 				" WHERE p.project_id=?";
-
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, projectId);
-		if (results.next()) {
-			project = mapRowToProject(results);
-		}
-
+try {
+	SqlRowSet results = jdbcTemplate.queryForRowSet(sql, projectId);
+	if (results.next()) {
+		project = mapRowToProject(results);
+	}
+}catch (CannotGetJdbcConnectionException e){
+	throw new DaoException("sadas"+e);
+}catch (DataIntegrityViolationException e){
+	throw new DaoException("kid"+e);
+}
 		return project;
 	}
 
@@ -41,39 +45,101 @@ public class JdbcProjectDao implements ProjectDao {
 	public List<Project> getProjects() {
 		List<Project> allProjects = new ArrayList<>();
 		String sql = PROJECT_SELECT;
-
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
-		while (results.next()) {
-			Project projectResult = mapRowToProject(results);
-			allProjects.add(projectResult);
+		try {
+			SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+			while (results.next()) {
+				Project projectResult = mapRowToProject(results);
+				allProjects.add(projectResult);
+			}
+		}catch (CannotGetJdbcConnectionException e){
+			throw new DaoException("listenHere" + e);
+		}catch (DataIntegrityViolationException e){
+			throw new DaoException("myType"+e);
 		}
-
 		return allProjects;
 	}
 
 	@Override
 	public Project createProject(Project newProject) {
-		throw new DaoException("createProject() not implemented");
+		Project gg = null;
+		String stateKid = "INSERT INTO project (name, from_date, to_date) VALUES(?, ?, ?) RETURNING project_id;\n";
+		try {
+			int count = jdbcTemplate.queryForObject(stateKid,int.class,newProject.getName(),newProject.getFromDate(),newProject.getToDate());
+			gg = getProjectById(count);
+		}catch (CannotGetJdbcConnectionException e){
+			throw new DaoException("hello"+e);
+		}catch (DataIntegrityViolationException e){
+			throw new DaoException("my old"+ e);
+		}
+
+
+return gg;
 	}
 	
 	@Override
 	public void linkProjectEmployee(int projectId, int employeeId) {
-		throw new DaoException("linkProjectEmployee() not implemented");
+		String commandMlol = "INSERT INTO project_employee (employee_id, project_id) VALUES (?,?)\n";
+		try{
+			jdbcTemplate.update(commandMlol,employeeId,projectId);
+		}catch (CannotGetJdbcConnectionException e){
+			throw new DaoException("frieendd!!");
+		}catch (DataIntegrityViolationException e){
+			throw new DaoException("Here we are again");
+		}
 	}
 
 	@Override
 	public void unlinkProjectEmployee(int projectId, int employeeId) {
-		throw new DaoException("unlinkProjectEmployee() not implemented");
+		String myWay = "ALTER TABLE project_employee DROP CONSTRAINT fk_project_employee_employee;\n" +
+				"DELETE FROM project_employee WHERE employee_id = ?;\n";
+		try{
+			jdbcTemplate.update(myWay,employeeId);
+		}catch (CannotGetJdbcConnectionException e){
+			throw new DaoException("kitaa" + e);
+		}catch (DataIntegrityViolationException e){
+			throw new DaoException("hello" + e);
+		}
 	}
 
 	@Override
 	public Project updateProject(Project project) {
-		throw new DaoException("updateProject() not implemented");
+		Project justForCase = null;
+		String thisIsjusttsmh = "UPDATE project SET name = ?, from_date = ?, to_date = ? WHERE project_id = ?;\n";
+		try{
+			jdbcTemplate.update(thisIsjusttsmh,project.getName(),project.getFromDate(),project.getToDate(),project.getId());
+			justForCase = getProjectById(project.getId());
+
+		}catch (CannotGetJdbcConnectionException e){
+			throw new DaoException("kka"+e);
+		}catch (DataIntegrityViolationException e){
+			throw new DaoException("oka"+e);
+		}
+
+		return justForCase;
 	}
 	@Override
 	public int deleteProjectById(int projectId) {
-		throw new DaoException("deleteProjectById() not implemented");
+	int countAmount = 0;
+	String yoMyGirl = "ALTER TABLE project_employee DROP CONSTRAINT fk_project_employee_employee;";
+
+	String smileAlot = "DELETE FROM project_employee WHERE project_id = ?";
+	String realyyc = "DELETE FROM project WHERE project_id = ?;";
+
+	try {
+		jdbcTemplate.update(yoMyGirl);
+		jdbcTemplate.update(smileAlot,projectId);
+		countAmount = jdbcTemplate.update(realyyc,projectId);
+
+
+	}catch (CannotGetJdbcConnectionException e){
+		throw new DaoException("notAgain"+ e);
+	}catch (DataIntegrityViolationException e){
+		throw new DaoException("myKid"+e);
 	}
+
+
+
+return countAmount;	}
 	
 	private Project mapRowToProject(SqlRowSet results) {
 		Project project = new Project();
