@@ -17,6 +17,16 @@ public class HelloWorld {
 //
 //        CityDOAImpl connectTopark = new CityDOAImpl(trythis);
 //        connectTopark.printEver();
+        BasicDataSource getConnected = ConnectToDatabase.getconnected();
+        SocialMediaimpl myTime = new SocialMediaimpl(getConnected);
+        if(myTime!=null){
+            System.out.println("We are connected");
+        }
+
+
+
+
+
 //
 //        BasicDataSource catDaddy = new BasicDataSource();
 //        catDaddy.setUrl("jdbc:postgresql://localhost:5432/UnitedStates");
@@ -27,7 +37,7 @@ public class HelloWorld {
 //            System.out.println("still here");
 //        }
 //        haha.printOf();
-
+//
 //String dateNow = "19000127";
 //dateNow.
 //        LocalDate thisKid = LocalDate.parse("19900127", haha);
@@ -53,7 +63,8 @@ public class HelloWorld {
 //        List<String>tryThis = hello;
 //        System.out.println(tryThis);
 
-
+String myDog = "";
+        System.out.println(myDog.isEmpty());
 
     }
 
