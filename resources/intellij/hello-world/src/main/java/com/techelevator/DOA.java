@@ -10,9 +10,9 @@ public interface DOA<T> {
     List<T> getAll() throws SQLException;
 
     int save(T t) throws SQLException;
-    int insert(T t) throws SQLException;
+    int insert(String name, String lastname, String account_handle,int age, String address) throws SQLException;
 
-    int update(T t) throws SQLException;
+    int update(String change,String again, String againtwo,int ann, String againthree,int id) throws SQLException;
 
     int delete (T t) throws SQLException;
 }

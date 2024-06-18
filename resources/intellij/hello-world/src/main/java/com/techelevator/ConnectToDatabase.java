@@ -6,7 +6,7 @@ import org.apache.commons.dbcp2.BasicDataSource;
 
 
 public class ConnectToDatabase {
-    private static String url = "jdbc:postgresql://localhost:5432/UnitedStates";
+    private static String url = "jdbc:postgresql://localhost:5432/SocialMedia";
     private static String user ="postgres";
     private static String password ="postgres1";
 

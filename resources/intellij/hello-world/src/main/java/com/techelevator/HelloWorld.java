@@ -3,6 +3,7 @@ import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -12,7 +13,7 @@ import java.util.Collections;
 
 public class HelloWorld {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 //        BasicDataSource trythis = ConnectToDatabase.getconnected();
 //
 //        CityDOAImpl connectTopark = new CityDOAImpl(trythis);
@@ -20,12 +21,12 @@ public class HelloWorld {
         BasicDataSource getConnected = ConnectToDatabase.getconnected();
         SocialMediaimpl myTime = new SocialMediaimpl(getConnected);
         if(myTime!=null){
-            System.out.println("We are connected");
+            System.out.println("We are updated");
         }
 
-
-
-
+//        int total  = myTime.insert("alioune","Diasse","@aliounediasse",27,"145 W. Penn Street");
+        int change = myTime.update("ouma","diasse","@oumaTester",27,"newyork", 3);
+        System.out.println(change);
 
 //
 //        BasicDataSource catDaddy = new BasicDataSource();
