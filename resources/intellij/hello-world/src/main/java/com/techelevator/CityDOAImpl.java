@@ -11,10 +11,10 @@ public class CityDOAImpl implements CityDOA{
     private JdbcTemplate changeConnection;
 
     public CityDOAImpl(BasicDataSource handOver){
-        changeConnection = new JdbcTemplate(handOver);
+        this.changeConnection = new JdbcTemplate(handOver);
     }
 
-    public void printEver(){
+    public void printOf(){
         String sqlQuerytest = "SELECT * FROM city";
         SqlRowSet manthis = changeConnection.queryForRowSet(sqlQuerytest);
         while(manthis.next()){
@@ -23,9 +23,9 @@ public class CityDOAImpl implements CityDOA{
         }
     }
 
-    public void tryME(){
-        printEver();
-    }
+//    public void tryME(){
+//        printEver();
+//    }
 
     @Override
     public CityDOA get(int id) throws SQLException {
