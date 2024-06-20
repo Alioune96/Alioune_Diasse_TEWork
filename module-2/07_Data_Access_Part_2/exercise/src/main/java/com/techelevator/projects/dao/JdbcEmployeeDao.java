@@ -151,14 +151,15 @@ public class JdbcEmployeeDao implements EmployeeDao {
 		String mmaaaTheKIdareHere = "UPDATE employee SET department_id = ?, first_name = ?, last_name = ?, birth_date = ?, hire_date = ? WHERE employee_id = ?;";
 		try {
 
-			jdbcTemplate.update(mmaaaTheKIdareHere,employee.getDepartmentId(),employee.getFirstName(),employee.getLastName(),employee.getBirthDate(),employee.getHireDate(),employee.getId());
-			int gimeMMEE = employee.getId();
-			listNOw = getEmployeeById(gimeMMEE);
+		jdbcTemplate.update(mmaaaTheKIdareHere,employee.getDepartmentId(),employee.getFirstName(),employee.getLastName(),employee.getBirthDate(),employee.getHireDate(),employee.getId());
+			listNOw = getEmployeeById(employee.getId());
 
-		}catch (CannotGetJdbcConnectionException e){
+		}
+
+		catch (CannotGetJdbcConnectionException e){
 			throw new DaoException("hahah"+e);
 		}catch (DataIntegrityViolationException e){
-			throw new DaoException("whatthatMean" + e);
+			throw new DaoException("up"+e);
 		}
 
 		return listNOw;
@@ -187,10 +188,10 @@ public class JdbcEmployeeDao implements EmployeeDao {
 	@Override
 	public int deleteEmployeesByDepartmentId(int departmentId) {
 		int myLifeBelike = 0;
-		String youNow = "DELETE FROM employee WHERE department_id = ?;\n";
+		String youNow = "DELETE FROM employee WHERE department_id = ?;";
 		String updatedCase = "DELETE FROM project_employee WHERE employee_id = ?;";
 		try{
-			jdbcTemplate.update("ALTER TABLE project_employee DROP CONSTRAINT fk_project_employee_employee");
+			jdbcTemplate.update("ALTER TABLE project_employee DROP CONSTRAINT fk_project_employee_employee;");
 			jdbcTemplate.update(updatedCase,departmentId);
 			int keepCount = jdbcTemplate.update(youNow,departmentId);
 			myLifeBelike=keepCount;
