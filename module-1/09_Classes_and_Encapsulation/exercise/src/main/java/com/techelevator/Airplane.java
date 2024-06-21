@@ -44,26 +44,16 @@ public class Airplane {
     }
 
     public boolean reserveSeats(boolean forFirstClass, int totalNumberOfSeats) {
-        if (forFirstClass == true) {
-            this.bookedFirstClassSeats += totalNumberOfSeats;
-            int store = getAvailableFirstClassSeats();
-            if (store >= totalNumberOfSeats) {
-                return true;
-            }else{
-                getBookedFirstClassSeats();
-                return false;
-            }
-        }
-        if (forFirstClass == false) {
-            this.bookedCoachSeats += totalNumberOfSeats;
-            int store = getAvailableCoachSeats();
-            if (store >= totalNumberOfSeats) {
-                return true;
-            }
+        if(forFirstClass){
+            bookedCoachSeats+=totalNumberOfSeats;
         }else{
-            getBookedCoachSeats();
-            return false;
+            bookedCoachSeats+=totalCoachSeats;
         }
+        if(getAvailableCoachSeats()>bookedCoachSeats){
+            return true;
+        }
+
+
         return false;
 
     }

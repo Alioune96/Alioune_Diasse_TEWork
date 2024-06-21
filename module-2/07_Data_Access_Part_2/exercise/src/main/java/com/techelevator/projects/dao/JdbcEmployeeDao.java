@@ -157,9 +157,9 @@ public class JdbcEmployeeDao implements EmployeeDao {
 		}
 
 		catch (CannotGetJdbcConnectionException e){
-			throw new DaoException("hahah"+e);
+			throw new DaoException("hahah", e);
 		}catch (DataIntegrityViolationException e){
-			throw new DaoException("up"+e);
+			throw new DaoException("up", e);
 		}
 
 		return listNOw;

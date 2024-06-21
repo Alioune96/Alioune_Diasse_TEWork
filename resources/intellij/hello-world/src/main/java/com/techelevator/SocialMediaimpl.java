@@ -12,17 +12,10 @@ public class SocialMediaimpl implements SocialMediaDOA{
 
     private final JdbcTemplate changeToTemplate;
 
+
     public SocialMediaimpl(BasicDataSource currentDatasource){
         this.changeToTemplate= new JdbcTemplate(currentDatasource);
     }
-
-
-
-
-
-
-
-
 
 
 

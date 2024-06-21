@@ -1,43 +1,64 @@
 Bug 1
 -----
 Test that demonstrates problem:
+The first problem i encounter was on method, ".getTimesheetsByEmployeeId"
 
 Expected output:
-
+the expected outcome was that the test would be able to match the amount of timesheet on an list based on the projectId.
+So if the project ID was 2, the result would have provided me with two Timesheet in the list.
 Actual output:
-
+The result was only providing me with one result. Every time that the test ran, the outcome was 1 instead of two
 How did you fix this bug?
-
+The code was using an if Statement which would only take the first query request and they were more that were needed. I changed the code from "if" to "while"
 
 Bug 2
 -----
 Test that demonstrates problem:
+the second problem i encounter was on a method ".getTimesheetsByProjectId()"
 
 Expected output:
-
+the expect outcome was that the method would return the appropriate amount of Timesheets based on the projectId provided.
 Actual output:
-
+the actual output was that the method was returning the wrong amount of timesheets. when the outcome was supposed to be 1, it returned 2. and other issues as well
 How did you fix this bug?
-
+the query statement was wrong. it was not selecting by projectId, but instead timesheetId(I think my computer died after i made the correction smh).
 
 Bug 3
 -----
 Test that demonstrates problem:
+the method that wasn't provide the right outcome was ".getbillablehours()"
 
 Expected output:
-
+the expected outcome was that the result would provide me with an correct outcome based on the whether the employeeId and projectId were billable (also billable had to be true)
 Actual output:
-
+The result was giving me the wrong outcome based on the fact that it was calculating the sum of the statement even if the timesheet is not billable, so billable being false and was still being added.
 How did you fix this bug?
-
+I added an additional statement in the sql query statement. i just added an clause that billable also had to be true.
 
 Bug 4
 -----
 Test that demonstrates problem:
-
+thee last issue i saw was one ".updateTimesheet()"
 Expected output:
-
+the expect result was that you can change the timesheet and all the column associated with the table
 Actual output:
-
+the output was that you could change all the column EXCEPT billable
 How did you fix this bug?
+I add the billable = ? in the statement and added the isbillable() method in the jdbc .updated() statement;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
