@@ -23,6 +23,7 @@ public class AuctionService {
     }
 
     public Auction getAuction(int id) {
+        Auction rett = restTemplate.getForObject(API_BASE_URL+"/"+id,Auction.class);
 
         Auction[]man = getAllAuctions();
         for (int i = 0; i < man.length ; i++) {
@@ -35,7 +36,7 @@ public class AuctionService {
 
 
         // call api here
-        return null ;
+        return rett ;
     }
 
     public Auction[] getAuctionsMatchingTitle(String title) {
@@ -47,11 +48,11 @@ public class AuctionService {
                 hope.add(man[i]);
             }
         }
-
+        Auction[]juss = restTemplate.getForObject(API_BASE_URL+"/?title_like="+title,Auction[].class);
         listenUp= hope.toArray(listenUp);
 
         // call api here
-        return listenUp;
+        return juss;
     }
 
     public Auction[] getAuctionsAtOrBelowPrice(double price) {
@@ -59,12 +60,13 @@ public class AuctionService {
         List<Auction>keepThem = new ArrayList<>();
         Auction[] weKnew = getAllAuctions();
         for (int i = 0; i < weKnew.length ; i++) {
-            if(weKnew[i].getCurrentBid()==price||weKnew[i].getCurrentBid()<price){
+            if(weKnew[i].getCurrentBid()==price||weKnew[i].getCurrentBid()<=price){
                 keepThem.add(weKnew[i]);
             }
         }
         returnKIng=keepThem.toArray(returnKIng);
-        return returnKIng;
+        Auction[]myTime = restTemplate.getForObject(API_BASE_URL+"/?currentBid_lte=&<"+price,Auction[].class);
+        return myTime;
     }
 
 }
