@@ -2,12 +2,15 @@ package com.techelevator.hotels.services;
 
 import com.techelevator.hotels.model.Hotel;
 import com.techelevator.hotels.model.Review;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Scanner;
 
 public class ConsoleService {
 
     private final Scanner scanner = new Scanner(System.in);
+
+
 
     public int promptForMenuSelection() {
         int menuSelection;

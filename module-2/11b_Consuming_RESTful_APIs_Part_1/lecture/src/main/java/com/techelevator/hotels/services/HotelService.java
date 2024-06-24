@@ -5,13 +5,20 @@ import com.techelevator.hotels.model.Hotel;
 import com.techelevator.hotels.model.Review;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
+
 public class HotelService {
 
     private static final String API_BASE_URL = "http://localhost:3000";
+
+//    private static final String secondOne = "http://localhost:3000/"
     private final RestTemplate restTemplate = new RestTemplate();
 
     public Hotel[] listHotels() {
-        return null;
+        Hotel[] keepThem = restTemplate.getForObject(API_BASE_URL, Hotel[].class);
+
+
+        return keepThem;
     }
 
     public Review[] listReviews() {
