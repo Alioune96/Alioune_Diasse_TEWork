@@ -22,18 +22,25 @@ public class HotelService {
     }
 
     public Review[] listReviews() {
-        return null;
+        Review[] keetthis=restTemplate.getForObject(API_BASE_URL+"/reviews",Review[].class);
+        return keetthis;
     }
 
     public Hotel getHotelById(int id) {
-        return null;
+        Hotel willthisreturn = restTemplate.getForObject(API_BASE_URL+"/hotels/"+id, Hotel.class);
+        return willthisreturn;
     }
 
     public Review[] getReviewsByHotelId(int hotelId) {
+
+        Review[] canOn = restTemplate.getForObject(API_BASE_URL+"/reviews/?hotelId="+hotelId,Review[].class);
+
         return null;
     }
 
     public Hotel[] getHotelsByStarRating(int stars) {
+        Hotel[]chess = listHotels();
+
         return null;
     }
 

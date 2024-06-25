@@ -8,6 +8,7 @@ public class SettingAccount {
 
     List<String> hobbiesForUser = new ArrayList<>();
 
+
     public SettingAccount() {
     }
 
@@ -38,8 +39,41 @@ public class SettingAccount {
                                 String lastName = userInput.nextLine();
                                 System.out.println("What is your Phone Number");
                                 String phoneNumber = userInput.nextLine();
+                                String phoneForAccount ="";
+                                boolean listenHereBuddy = true;
+                                while (listenHereBuddy){
+                                    boolean littleONe = true;
+                                    while (littleONe) {
+                                        if (phoneNumber.length() != 10) {
+                                            System.out.println("Here is the mistake");
+                                            phoneNumber=userInput.nextLine();
+                                        } else {
+                                            littleONe = false;
+                                        }
+                                    }
+
+                                    String[]Justcan = phoneNumber.split("");
+                                    for (int i = 0; i < Justcan.length ; i++) {
+                                        if(i!=0&&i%3==0&&i!=9){
+                                            phoneForAccount+="-";
+                                        }
+                                        phoneForAccount+=Justcan[i];
+                                                }
+                                            listenHereBuddy=false;
+
+                                }
                                 System.out.println("What is your Email");
                                 String emailContact = userInput.nextLine();
+                                boolean isNotvalidEmail = true;
+                                while (isNotvalidEmail){
+                                    if(emailContact.contains("@yahoo.com")||emailContact.contains("@gmail.com")){
+                                        isNotvalidEmail=false;
+
+                                    }else{
+                                        System.out.println("Please provide us with an valid email");
+                                        emailContact=userInput.nextLine();
+                                    }
+                                }
                                 boolean miniloop = true;
 
                                 while (miniloop) {
@@ -56,7 +90,7 @@ public class SettingAccount {
                                             getout = true;
                                         } else {
                                             System.out.println("Thank for creating an account with Linked-Friends");
-                                            creatingAccount = new UserInformation(firstName,lastName, phoneNumber, emailContact, ageOfUser);
+                                            creatingAccount = new UserInformation(firstName,lastName, emailContact,phoneNumber,ageOfUser);
                                             miniloop = false;
                                             protectedCase = false;
                                             getout = true;
@@ -132,7 +166,7 @@ public class SettingAccount {
         String caseFor = null;
         int x = 0;
         while (x < 20) {
-            System.out.println("asdadasdwdqefsdfsfsdfsdferefdsfdsfdfsdfsdfdsfdsxvcxvcxvxcvesfdsfd");
+            System.out.println("This is a test");
             x += 1;
         }
         try {

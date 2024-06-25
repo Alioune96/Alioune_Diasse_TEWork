@@ -17,16 +17,53 @@ public class AuctionService {
 
 
     public Auction add(Auction newAuction) {
+        HttpHeaders listenUp = new HttpHeaders();
+        listenUp.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Auction>couldyouTell = new HttpEntity<>(newAuction,listenUp);
+        try{
+            return restTemplate.postForObject(API_BASE_URL,couldyouTell, Auction.class);
+        }catch (RestClientResponseException e){
+            System.out.println("Your fault "+ e.getMessage());
+
+        }catch (ResourceAccessException e){
+            System.out.println("Server fault "+e.getMessage());
+        }
+
         // place code here
         return null;
     }
 
     public boolean update(Auction updatedAuction) {
+        HttpHeaders forLaugh = new HttpHeaders();
+        forLaugh.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Auction>chessmelted = new HttpEntity<>(updatedAuction,forLaugh);
+        String updated = API_BASE_URL+"/"+updatedAuction.getId();
+        try{
+            restTemplate.put(API_BASE_URL+"/"+updatedAuction.getId(),chessmelted);
+            return true;
+        }catch (RestClientResponseException e){
+            System.out.println("Your fault "+ e.getMessage());
+
+        }catch (ResourceAccessException e){
+            System.out.println("Server fault "+e.getMessage());
+        }
         // place code here
         return false;
     }
 
     public boolean delete(int auctionId) {
+
+        try{
+            restTemplate.delete(API_BASE_URL+"/"+auctionId);
+            return true;
+
+        }catch (RestClientResponseException e){
+            System.out.println("Your fault");
+
+        }catch (ResourceAccessException e){
+            System.out.println("Server Fault");
+        }
+
         // place code here
         return false;
     }

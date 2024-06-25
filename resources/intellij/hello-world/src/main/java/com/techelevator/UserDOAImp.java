@@ -6,6 +6,7 @@ import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 public class UserDOAImp implements UserDOA{
+
     JdbcTemplate connectToOtherWorld;
 
     public UserDOAImp(BasicDataSource winTime){
@@ -14,11 +15,11 @@ public class UserDOAImp implements UserDOA{
     }
     @Override
     public void createdUser(UserInformation userClass) {
-        String thiswillwork = "INSERT INTO userinfo(first_name,last_name,email,phone_number,age) VALUES (?,?,?,?,?)";
+        String thiswillwork = "INSERT INTO userinfo (first_name,last_name,email,phone_number,age) VALUES (?,?,?,?,?)";
         try{
-            connectToOtherWorld.update(thiswillwork,userClass.getFirstName(), userClass.getLastName(),userClass.getPhoneNumber(),userClass.getPhoneNumber(),userClass.getAge());
+            connectToOtherWorld.update(thiswillwork,userClass.getFirstName(),userClass.getLastName(),userClass.getEmail(),userClass.getPhoneNumber(),userClass.getAge());
 
-            System.out.println("HELLO "+ userClass.getFirstName().toUpperCase());
+            System.out.println("Hello "+ userClass.getFirstName().toUpperCase());
 
         }catch (CannotGetJdbcConnectionException e){
             throw new RuntimeException("Didn't work "+e);
@@ -29,9 +30,32 @@ public class UserDOAImp implements UserDOA{
     }
 
     @Override
-    public void deleteAccount() {
+    public void deleteAccount(String phonenumber, String makeMe) {
+
+        String firstOne = "SELECT user_id FROM userinfo WHERE first_name ILIKE ? AND phone_number = ?;\n";
+        String delete = "DELETE FROM userinfo WHERE user_id = ?;\n";
+
+        try{
+            SqlRowSet giveMe = connectToOtherWorld.queryForRowSet(firstOne,makeMe,phonenumber);
+            if(!giveMe.wasNull()){
+                if(giveMe.next()){
+                    int james = giveMe.getInt("user_id");
+                    connectToOtherWorld.update(delete,james);
+
+                }
+            }
+
+
+
+        }catch (CannotGetJdbcConnectionException e){
+            throw new RuntimeException("Sorry "+e.getMessage());
+        }catch (DataIntegrityViolationException e){
+            throw new RuntimeException("This you can fix "+ e.getMessage());
+        }
 
     }
+
+
 
     public UserInformation creatingHumans(SqlRowSet setforData){
         UserInformation newKid = new UserInformation();
