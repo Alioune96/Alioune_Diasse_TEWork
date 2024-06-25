@@ -12,16 +12,24 @@ public class HotelService {
 
     public Hotel[] listHotels() {
         // .getForObject(String url, );
-        restTemplate.getForObject(API_BASE_URL);
-        return null;
+        //          http://localhost:3000/hotels
+        String fullURL = API_BASE_URL + "/hotels";
+
+        Hotel[] results = restTemplate.getForObject(fullURL, Hotel[].class);
+
+        return results;
     }
 
     public Review[] listReviews() {
-        return null;
+        String fullURL = API_BASE_URL + "/reviews";    // "http://localhost:3000/reviews"
+
+        Review[] results = restTemplate.getForObject(fullURL, Review[].class);
+
+        return results;
     }
 
-    public Hotel getHotelById(int id) {
-        return null;
+    public Hotel getHotelById(int id) {  // http://localhost:3000/hotels/x
+        return restTemplate.getForObject(API_BASE_URL + "/hotels/" + id, Hotel.class);
     }
 
     public Review[] getReviewsByHotelId(int hotelId) {
