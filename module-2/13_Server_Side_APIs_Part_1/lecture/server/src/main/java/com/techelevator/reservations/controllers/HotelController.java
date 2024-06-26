@@ -8,7 +8,7 @@ import com.techelevator.reservations.model.Hotel;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@RestController
 public class HotelController {
 
     private HotelDao hotelDao;
@@ -17,6 +17,8 @@ public class HotelController {
     public HotelController() {
         this.hotelDao = new MemoryHotelDao();
         this.reservationDao = new MemoryReservationDao(hotelDao);
+
+
     }
 
     /**
@@ -39,5 +41,12 @@ public class HotelController {
     public Hotel get(@PathVariable int id) {
         return hotelDao.getHotelById(id);
     }
+
+    @RequestMapping(path = "/hotels/address", method = RequestMethod.GET)
+    public List<Hotel> getbyName(@RequestBody String state,@RequestBody String city){
+        return hotelDao.getHotelsByStateAndCity(state,city);
+    }
+
+
 
 }

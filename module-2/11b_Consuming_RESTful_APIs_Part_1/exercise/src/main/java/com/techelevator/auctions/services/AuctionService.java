@@ -1,5 +1,8 @@
 package com.techelevator.auctions.services;
 
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.web.client.RestTemplate;
 
 import com.techelevator.auctions.model.Auction;
@@ -31,6 +34,10 @@ public class AuctionService {
                 return man[i];
             }
 
+            HttpHeaders newOne = new HttpHeaders();
+            newOne.setContentType(MediaType.APPLICATION_JSON);
+
+
         }
 
 
@@ -50,7 +57,6 @@ public class AuctionService {
         }
         Auction[]juss = restTemplate.getForObject(API_BASE_URL+"/?title_like="+title,Auction[].class);
         listenUp= hope.toArray(listenUp);
-
         // call api here
         return juss;
     }
@@ -67,6 +73,10 @@ public class AuctionService {
         returnKIng=keepThem.toArray(returnKIng);
         Auction[]myTime = restTemplate.getForObject(API_BASE_URL+"/?currentBid_lte=&<"+price,Auction[].class);
         return myTime;
+
+
+
+
     }
 
 }

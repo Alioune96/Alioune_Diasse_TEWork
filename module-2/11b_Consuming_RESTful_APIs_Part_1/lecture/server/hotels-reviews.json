@@ -95,22 +95,6 @@
       "roomsAvailable": 43,
       "costPerNight": 218,
       "coverImage": "summit-cincinnati.webp"
-    },
-    {
-      "id": 7,
-      "name": "Greektown Detroit",
-      "address": {
-        "id": "bce5d791-1ef6-4a93-984b-2cd3fbe46ddd",
-        "address": "1200 St Antoine St",
-        "address2": "",
-        "city": "Detroit",
-        "state": "Michigan",
-        "zip": "48226"
-      },
-      "stars": 4,
-      "roomsAvailable": 75,
-      "costPerNight": 185,
-      "coverImage": "greektown-detroit.webp"
     }
   ],
   "reviews": [

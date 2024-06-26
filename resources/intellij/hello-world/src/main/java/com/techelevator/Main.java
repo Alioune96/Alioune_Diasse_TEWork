@@ -22,6 +22,7 @@ public class Main {
         if(appRun.appStarted()){
             appRun.appStarted();
         }
+        String man = "*";
 
 
 
