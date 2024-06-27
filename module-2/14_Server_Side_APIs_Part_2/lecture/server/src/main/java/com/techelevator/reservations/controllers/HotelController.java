@@ -101,6 +101,19 @@ public class HotelController {
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/reservations", method = RequestMethod.POST)
     public Reservation addReservation(@RequestBody Reservation reservation) {
+
+
+
         return reservationDao.createReservation(reservation);
+    }
+
+
+    @RequestMapping(path ="/reservations/{id}", method = RequestMethod.DELETE)
+    public int deletedMethod(@PathVariable int userId){
+        reservationDao.deleteReservationById(userId);
+
+
+
+        return
     }
 }

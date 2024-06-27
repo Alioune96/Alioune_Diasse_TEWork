@@ -19,48 +19,31 @@ public class AuctionController {
     public AuctionController() {
         this.auctionDao = new MemoryAuctionDao();
     }
-@RequestMapping(method = RequestMethod.GET)
-    public List<Auction>listOne(@RequestParam (required = false)String title,@RequestParam(defaultValue = "0",required = false) double currentBid_lte){
 
 
 
-        if(title==null&&currentBid_lte==0){
 
-                return auctionDao.getAuctions();
 
-        }
-        if(title==null){
-            if(currentBid_lte>=0) {
-                List<Auction> listSeek = new ArrayList<>();
-                List<Auction> justATry = auctionDao.getAuctions();
-                for (int i = 0; i < justATry.size(); i++) {
-                    if (justATry.get(i).getCurrentBid() <= currentBid_lte) {
-                        listSeek.add(justATry.get(i));
-                    }
-                }
-                return listSeek;
+    @RequestMapping(method = RequestMethod.GET)
+    public List<Auction> listOne(@RequestParam(name = "title_like",defaultValue = "") String title, @RequestParam(defaultValue = "0") double currentBid_lte) {
 
-            }
-        }
-        if(title!=null){
-            if(!title.isEmpty()){
-                List<Auction>james = new ArrayList<>();
-                List<Auction>kingPlace = auctionDao.getAuctions();
-                for (int i = 0; i < kingPlace.size() ; i++) {
-                    if(kingPlace.get(i).getTitle().toLowerCase().contains(title.toLowerCase())){
-                        james.add(kingPlace.get(i));
-                    }
-                }return james;
-            }
+        // If both are provided
+        if (!title.isEmpty() && currentBid_lte > 0.0) {
+            return auctionDao.getAuctionsByTitleAndMaxBid(title, currentBid_lte);
         }
 
+        // If bid is provided (but not title)
+        if (currentBid_lte>0.00 && title.isEmpty()) {
+            return auctionDao.getAuctionsByMaxBid(currentBid_lte);
+        }
 
+        // If title is provided (but not bid)
+         if(!title.isEmpty()) {
+             return auctionDao.getAuctionsByTitle(title);
+         }
 
-
-    return null;
-
-}
-
+        return auctionDao.getAuctions();
+    }
 
 
     @RequestMapping(path = "/{id}",method = RequestMethod.GET)
@@ -76,12 +59,5 @@ public class AuctionController {
         }
         return null;
     }
-
-
-
-
-
-
-
 
 }
