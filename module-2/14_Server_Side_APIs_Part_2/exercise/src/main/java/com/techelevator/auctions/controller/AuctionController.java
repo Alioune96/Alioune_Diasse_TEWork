@@ -4,13 +4,7 @@ import java.util.List;
 
 import com.techelevator.auctions.exception.DaoException;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.techelevator.auctions.dao.AuctionDao;
 import com.techelevator.auctions.model.Auction;
@@ -28,7 +22,7 @@ public class AuctionController {
         this.auctionDao = auctionDao;
     }
 
-    @RequestMapping(path = "", method = RequestMethod.GET)
+    @RequestMapping( method = RequestMethod.GET)
     public List<Auction> list(@RequestParam(defaultValue = "") String title_like, @RequestParam(defaultValue = "0") double currentBid_lte) {
 
         if (!title_like.equals("")) {
@@ -64,14 +58,20 @@ public class AuctionController {
         }
         return null;
     }
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @RequestMapping(path = "/{id}", method = RequestMethod.PUT)
-    public Auction updated(@PathVariable int id, @Valid @RequestBody Auction newGuy){
-       newGuy.setId(id);
-        try {
-            return auctionDao.updateAuction(newGuy);
-        }catch (DaoException e){
+//    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @PutMapping(path = "/{id}")
+    public Auction update(@Valid @RequestBody Auction auction,@PathVariable() int id){
+        if(auction.getId()!=id){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+
+
+        try {
+            Auction listenUp = auctionDao.updateAuction(auction);
+            listenUp.setId(id);
+            return listenUp;
+        }catch (DaoException e){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
 
 
