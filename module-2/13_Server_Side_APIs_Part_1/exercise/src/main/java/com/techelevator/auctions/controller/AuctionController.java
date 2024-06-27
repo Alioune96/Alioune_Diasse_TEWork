@@ -25,7 +25,7 @@ public class AuctionController {
 
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<Auction> listOne(@RequestParam(name = "title_like",defaultValue = "") String title, @RequestParam(defaultValue = "0") double currentBid_lte) {
+    public List<Auction> listOne(@RequestParam(name = "title_like", defaultValue = "") String title, @RequestParam(defaultValue = "0") double currentBid_lte) {
 
         // If both are provided
         if (!title.isEmpty() && currentBid_lte > 0.0) {
