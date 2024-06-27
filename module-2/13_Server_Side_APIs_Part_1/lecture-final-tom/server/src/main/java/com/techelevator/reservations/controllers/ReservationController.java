@@ -20,7 +20,7 @@ public class ReservationController {
 
 
     // Create a new reservation!
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.CREATED)  // 201 CREATED
     @RequestMapping(path = "/reservations", method = RequestMethod.POST)
     public Reservation addReservation(@RequestBody Reservation newReservation) {
         return rezDao.createReservation(newReservation);
