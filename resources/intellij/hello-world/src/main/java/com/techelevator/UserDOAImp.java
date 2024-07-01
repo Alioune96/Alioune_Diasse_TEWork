@@ -20,6 +20,7 @@ public class UserDOAImp implements UserDOA{
             connectToOtherWorld.update(thiswillwork,userClass.getFirstName(),userClass.getLastName(),userClass.getEmail(),userClass.getPhoneNumber(),userClass.getAge());
 
             System.out.println("Hello "+ userClass.getFirstName().toUpperCase());
+            displayCurrentdata();
 
         }catch (CannotGetJdbcConnectionException e){
             throw new RuntimeException("Didn't work "+e);
@@ -37,6 +38,7 @@ public class UserDOAImp implements UserDOA{
 
         try{
             SqlRowSet giveMe = connectToOtherWorld.queryForRowSet(firstOne,makeMe,phonenumber);
+
             if(!giveMe.wasNull()){
                 if(giveMe.next()){
                     int james = giveMe.getInt("user_id");
@@ -53,6 +55,16 @@ public class UserDOAImp implements UserDOA{
             throw new RuntimeException("This you can fix "+ e.getMessage());
         }
 
+    }
+
+    public void displayCurrentdata(){
+        String printOut ="SELECT * FROM userinfo";
+        SqlRowSet handOut = connectToOtherWorld.queryForRowSet(printOut);
+
+        while(handOut.next()){
+            String name = handOut.getString("first_name");
+            System.out.println(name);
+        }
     }
 
 

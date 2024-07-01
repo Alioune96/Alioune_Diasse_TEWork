@@ -95,6 +95,19 @@
       "roomsAvailable": 43,
       "costPerNight": 218,
       "coverImage": "summit-cincinnati.webp"
+    },
+    {
+      "id": 7,
+      "name": "Alioune Paradise",
+      "address": {
+        "address": "145 W Penn Street",
+        "city": "Philadelphia",
+        "state": "Ohio",
+        "zip": "19144"
+      },
+      "stars": 4,
+      "roomsAvailable": 100,
+      "costPerNight": 85
     }
   ],
   "reviews": [

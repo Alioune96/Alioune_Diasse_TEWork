@@ -111,6 +111,19 @@
       "roomsAvailable": 75,
       "costPerNight": 185,
       "coverImage": "greektown-detroit.webp"
+    },
+    {
+      "id": 8,
+      "name": "AliouneLastOne",
+      "stars": 0,
+      "address": {
+        "id": "12",
+        "city": "Columbus",
+        "zip": "43121"
+      },
+      "roomsAvailable": 0,
+      "coverImage": "THIS IS THE COVER",
+      "roomAvailable": 0
     }
   ],
   "reservations": [

@@ -8,6 +8,7 @@ import com.techelevator.reservations.exception.DaoException;
 import com.techelevator.reservations.model.Hotel;
 import com.techelevator.reservations.model.Reservation;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -34,6 +35,8 @@ public class HotelController {
      * @param city  the city to filter by
      * @return a list of hotels that match the city & state
      */
+
+ @PreAuthorize("isAuthenticated()")
     @RequestMapping(path = "/hotels", method = RequestMethod.GET)
     public List<Hotel> list(@RequestParam(required=false) String state, @RequestParam(required = false) String city) {
         return hotelDao.getHotelsByStateAndCity(state, city);
