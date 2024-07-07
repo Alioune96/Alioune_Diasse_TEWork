@@ -8,6 +8,7 @@ import javax.sql.DataSource;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -22,9 +23,12 @@ public class Main {
 
         Main appRun = new Main();
         if(appRun.appStarted()){
+
+
             appRun.appStarted();
         }
-        String man = "*";
+
+
 
 
 
@@ -46,6 +50,7 @@ public class Main {
 
                 if (firstFile.exists()) {
                     try (PrintWriter tyrone = new PrintWriter(firstFile)) {
+
                         System.out.println("Hello User, Welcome To Linked-Friends");
                         UserInformation hello = userAccount.settingAccount();
                         if (hello == null) {
