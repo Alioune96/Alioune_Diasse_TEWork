@@ -1,0 +1,130 @@
+body{
+    background-color: green;
+}
+
+
+h1{
+    font-size: 38px;
+    color:#AE8625; 
+    text-align: center;
+}
+
+
+
+p{
+    
+    text-align: center;
+    color: aliceblue;
+}
+
+#rock-main{
+    
+    width: 398px;
+    border-style:solid;
+    border-color: #AE8625;
+    border-width: 5px;
+
+}
+
+#facts-section{
+    margin-top: 55px;
+    text-decoration: underline;
+}
+
+#Appearances{
+    color: aliceblue;
+}
+
+#quotes-section{
+    color: aliceblue;
+    text-align: center;
+}
+
+blockquote{
+    font-style: italic;
+}
+
+#links-section{
+    text-decoration: underline;
+}
+
+td{
+    color: aliceblue;
+}
+
+tr{
+    color: aliceblue;
+}
+
+#Links_id{
+    color: aliceblue;
+    text-decoration: underline;
+}
+
+#links-section{
+    text-decoration: underline;
+
+}
+
+li{
+    color: white;
+}
+
+a{
+    text-decoration: none;
+}
+
+#quotes-section{
+    text-decoration: underline;
+}
+
+
+
+.nounder{
+    font-style: italic;
+    text-align: center;
+    color: aliceblue;
+    
+}
+
+/*second page*/
+
+#second_link{
+    background-color: burlywood;
+}
+
+#name{
+    margin-bottom: 7px;
+}
+
+#email{
+    margin-bottom: 7px;
+}
+
+#date-of-birth{
+    margin-bottom: 7px;
+}
+
+#lucky-number{
+    margin-bottom: 7px;
+}
+
+#checkbox{
+    margin-bottom: 7px;
+}
+
+#button{
+    margin-top: 7px;
+}
+
+#favorite-color{
+    margin-bottom: 7px;
+}
+
+#frback{
+    background-color: aliceblue;
+}
+
+#facts-section{
+    text-decoration: underline;
+}
