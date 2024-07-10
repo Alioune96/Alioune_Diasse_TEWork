@@ -154,3 +154,8 @@ div.food-item p {
         max-width: 75%;
     }
 }
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
