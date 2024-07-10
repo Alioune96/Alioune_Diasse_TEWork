@@ -1,0 +1,67 @@
+/* Hello World! */
+
+/* Element selector: affects ALL elements of that type */
+h1 {
+    color: blue;
+}
+
+/* ID: #   (SHOULD affect only one element) */
+#trello-board {
+    background-color: grey;
+}
+
+
+p {
+    color: aquamarine;
+}
+
+
+#te {
+    color: green;
+    margin-left: 100px;
+}
+
+
+/* Class:  */
+.label {
+    background-color: antiquewhite;
+}
+
+/* Universal Selector: *       */
+* {
+    margin: 0px;
+}
+
+/* Attribute selector:  tag[attribute="value"]   */
+input[type="color"] {
+    width: 100px;
+}
+
+/* Fancy Selectors: 
+     Descendant:      (a space)    -- could be anywhere in the family tree (grandchild, great-grandchild, etc)
+     Direct Child:  >              -- has to be a direct child only
+*/
+
+/* Descendant */
+header div {
+    /* any div that is anywhere inside the header tag */
+    /* <header> <p> <div></div> </p> </header>   YES  */
+    /* <header> <div> <p></p> </div> </header>   YES */
+}
+
+/* Direct Child */
+header > div {
+    /* any div that is anywhere inside the header tag */
+    /* <header> <p> <div></div> </p> </header>   NO  */
+    /* <header> <div> <p></p> </div> </header>   YES */
+}
+
+/* pseudo classes */
+a:hover {
+    background-color: salmon;
+}
+
+div:hover {
+    background-color: seagreen;
+}
+
