@@ -19,3 +19,111 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+
+#aside{
+  border-right: 1px solid  rgba(0, 173, 238, 0.4) ;
+ 
+  position: fixed;
+  height: 100vh;
+  width: 200px;
+
+}
+
+#logoT{
+  height: 120px;
+  margin-bottom: 25px;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+#main{
+  margin-left: 200px;
+  padding-left: 20px;
+  padding-right: 20px;  
+ 
+  /* margin-right: 20px; */
+}
+
+.list{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(0, 173, 238, 0.4);
+  width: 85%;
+  list-style: none;
+  padding: 10px;
+}
+
+.linktext{
+    font-weight: bold;
+    color: #00ADEE;
+    text-decoration: none;
+}
+
+#firstOne.linktext{
+  text-decoration:underline;
+}
+
+#notbanner{
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+.banner{
+  width: 100%;
+}
+
+.champ{
+  display:flex;
+}
+
+#what-we-do{
+  width: 33%;
+  padding: 5px;
+}
+
+#our-work{
+  width: 33%;
+  padding: 5px;
+}
+
+#contact-us{
+  width: 33%;
+  padding: 5px;
+}
+
+.fas{
+  color:#8CC36F;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.champ h2{
+  color: #8CC36F;
+
+}
+
+.here{
+  /* margin-top:25px ; */
+  border-left: 1px solid #8CC36F;
+
+}
+
+.tyty{
+  margin-top: 10px;
+}
+
+.tyty p{
+  padding: 10px;
+}
+
+
+
+
+
+
+
+

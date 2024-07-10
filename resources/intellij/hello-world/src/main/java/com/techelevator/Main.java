@@ -21,13 +21,28 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Main appRun = new Main();
-        if(appRun.appStarted()){
+//        Main appRun = new Main();
+//        if(appRun.appStarted()){
+//
+//
+//            appRun.appStarted();
+//        }
 
+        char[][]hello = new char[5][5];
+        hello[0][0]='e';
+        hello[1][1]='k';
+        hello[2][2]='i';
+        hello[3][3]='h';
+        hello[4][4]='t';
+String truOne = "";
 
-            appRun.appStarted();
+        for (int i = 0; i < hello.length; i++) {
+            truOne+=hello[i][i];
         }
 
+
+
+        System.out.println(truOne);
 
 
 
