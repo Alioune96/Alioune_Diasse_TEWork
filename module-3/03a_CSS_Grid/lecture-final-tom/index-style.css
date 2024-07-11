@@ -1,0 +1,13 @@
+
+div#container {
+
+    display: grid;
+    grid-template-columns: 1fr 2fr 4fr 1fr;
+
+    
+
+}
+
+h1 {
+    border: 3px dotted red;
+}
