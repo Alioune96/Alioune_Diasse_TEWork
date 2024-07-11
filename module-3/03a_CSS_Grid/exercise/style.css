@@ -50,3 +50,129 @@ header img {
 #student-picture img{
     border-radius: 50%;
 }
+
+#main-grid{
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 50px;
+    row-gap: 20px;
+    grid-template-areas: "h h p"
+                         "q q p"
+                         "sp sp c"
+                         "eg eg eg";
+
+    align-items: center;
+ 
+
+}
+
+#experience-grid{
+     display: grid;
+     grid-area: eg; 
+     grid-template-columns: 1fr 1fr;
+     column-gap: 50px;
+     row-gap: 20px;
+     grid-template-areas: "ec ec "
+                          "ed ed "
+                           "w ede";
+}
+
+
+
+ 
+#headline{
+    grid-area: h;
+}
+
+#student-picture{
+    grid-area: p;
+    text-align: center;
+}
+
+#student-quote{
+    grid-area: q;
+}
+
+#student-profile{
+    grid-area: sp;
+}
+
+#student-contact{
+    text-align: center;
+    grid-area: c;
+}
+
+#experience-code{
+    grid-area: ec;
+}
+
+#experience-database{
+    grid-area: ed;
+}
+
+#experience-web{
+    grid-area: w;
+}
+
+#experience-design{
+    grid-area: ede;
+} 
+
+
+
+@media only screen and (max-width: 1024px) {
+    #main-grid{
+        display: grid;
+        column-gap: 35px;
+        row-gap: 20px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "h h"
+                              "q p"
+                              "q c"
+                              "sp sp"
+                              "eg eg";
+                              
+                              
+    }
+
+    #experience-grid{
+        display: grid;
+        column-gap:20px;
+        row-gap: 20px;
+        grid-template-areas: "ec w"
+                              "ed ede";
+
+        /* grid-template-areas: ; */
+        grid-area: eg;  
+   }
+
+    
+
+@media only screen and (max-width: 450px){
+
+    #main-grid{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: "h"
+                             "p"
+                             "c"
+                             "q"
+                              "sp"
+                              "eg";
+    }
+
+    #experience-grid{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas: "ec"
+                              "w"
+                              "ed"
+                              "ede";
+    }
+
+}
+
+   
+    
+}
