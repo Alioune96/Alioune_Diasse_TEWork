@@ -9,10 +9,17 @@ body {
   padding: 20px;
   margin-bottom: 20px;
   border: solid 1px #555;
+  display: flex;
 }
+
+
 
 .bio img {
   width: 150px;
   border-radius: 999px;
   margin: 0 10px;
+}
+
+div.bio:nth-child(2){
+  flex-direction: row-reverse;
 }

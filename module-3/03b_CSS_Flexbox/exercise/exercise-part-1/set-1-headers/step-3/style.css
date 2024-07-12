@@ -6,6 +6,8 @@ body {
 header {
   background-color: #F0F0F0;
   padding: 20px;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .logo {
@@ -16,6 +18,8 @@ ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
+  display: flex;
+  justify-content: center;
 }
 
 li {
@@ -36,4 +40,12 @@ a:visited {
 a:hover {
   color: #00AFEF;
   text-decoration: underline;
+}
+
+
+nav{
+/* display: flex; */
+flex-grow: 1;
+size: 2px;
+  text-align: center;
 }
