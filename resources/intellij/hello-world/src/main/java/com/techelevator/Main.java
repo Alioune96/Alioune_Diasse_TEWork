@@ -21,28 +21,23 @@ public class Main {
 
     public static void main(String[] args) {
 
-//        Main appRun = new Main();
-//        if(appRun.appStarted()){
-//
-//
-//            appRun.appStarted();
-//        }
+        Main appRun = new Main();
+        if(appRun.appStarted()){
 
-        char[][]hello = new char[5][5];
-        hello[0][0]='e';
-        hello[1][1]='k';
-        hello[2][2]='i';
-        hello[3][3]='h';
-        hello[4][4]='t';
-String truOne = "";
 
-        for (int i = 0; i < hello.length; i++) {
-            truOne+=hello[i][i];
+            appRun.appStarted();
         }
 
 
 
-        System.out.println(truOne);
+
+
+
+
+    testOne one = new testOne();
+
+        System.out.println(one.javaIsReal);
+
 
 
 
@@ -57,6 +52,7 @@ String truOne = "";
             keeupUp.setUsername("postgres");
             keeupUp.setPassword("postgres1");
             UserDOAImp makeSure = new UserDOAImp(keeupUp);
+
 
 
             Scanner userAnswer = new Scanner(System.in);
@@ -85,6 +81,9 @@ String truOne = "";
 
                             }
                         }
+
+
+
                         makeSure.createdUser(hello);
                         boolean weArekeepingYou = userAccount.guidelinePromt(userAnswer);
                         if (!weArekeepingYou) {
@@ -106,5 +105,6 @@ String truOne = "";
 
 return isAppOn;
     }
+
 
     }

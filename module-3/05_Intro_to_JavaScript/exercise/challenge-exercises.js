@@ -12,6 +12,50 @@
         iqTest("2 2 4 6") → 0 // all numbers are even, therefore there is no position of an odd number
 */
 
+    function iqTest(paraGuy){
+        if(paraGuy>=0){
+            return 0;
+        }
+        let javaMyFriend = `${paraGuy}`;
+        let funGuy = javaMyFriend.split(" ");
+      
+          let number = 0;
+        let numberTwo = 0;
+        for(let i = 0; i<funGuy.length;i++){
+            if(funGuy[i]%2==0){
+                number+=1;
+            }else if(funGuy[i]%2==1){
+                numberTwo+=1;
+            }
+        }
+        if(funGuy.length - number == 1){
+            for(let i = 0; i < funGuy.length; i++){
+                if(funGuy[i]%2==1){
+                    let countAmount = funGuy.indexOf(funGuy[i]);
+                    return countAmount+= 1;
+                }
+            }
+        }else if(funGuy.length - numberTwo == 1){
+            for(let i = 0; i < funGuy.length; i++){
+                if(funGuy[i]%2==0){
+                    return funGuy.indexOf(funGuy[i])+1;
+                }
+            }
+        }
+
+        return 0;
+
+    }
+let idontlikeyou = [1,2,1,1]
+
+iqTest(idontlikeyou);
+
+
+
+
+
+
+
 /*
 2. **titleCase** Write a function that will convert a string into title case, given an optional 
     list of exceptions (minor words). The list of minor words will be given as a string with each 
@@ -28,3 +72,64 @@ argument is unused.
 		titleCase('THE WIND IN THE WILLOWS', 'The In') // should return: 'The Wind in the Willows'
         titleCase('the quick brown fox') // should return: 'The Quick Brown Fox'
 */
+
+
+function titleCase(mainpa, secondpar){
+    let arrayGuy = `${mainpa}`.split(" ");
+    let secondGuy = `${secondpar}`.split(" ");
+    let storeThem = "";
+
+
+
+
+ if(secondGuy.length == 0){
+        for(let i = 0; i < arrayGuy.length; i++){
+           let jamesss =  arrayGuy[i].substring(0,1).toUpperCase(`${arrayGuy[i]}`)+arrayGuy[i].substring(1).toLowerCase(`${arrayGuy[i]}`);
+           storeThem+=jamesss;
+           if(arrayGuy.length -i != 1){
+            let buddy  = `${secondpar}`;
+            buddy = " ";
+            storeThem+=buddy;
+           }else{
+            break;
+           }
+        }
+        return storeThem;
+    }
+
+    
+    
+    
+    for(let i = 0; i < arrayGuy.length; i++){
+        let jamesss =  arrayGuy[i].substring(0,1).toUpperCase(`${arrayGuy[i]}`)+arrayGuy[i].substring(1).toLowerCase(`${arrayGuy[i]}`);
+        storeThem+=jamesss;
+        if(arrayGuy.length -i != 1){
+         let buddy  = `${secondpar}`;
+         buddy = " ";
+         storeThem+=buddy;
+        }else{
+         break;
+        }
+     }
+
+     for (let i = 0; i <secondGuy.length; i++ ){
+
+        let hereChild = secondGuy[i].substring(0,1).toUpperCase(`${secondGuy[i]}`)+secondGuy[i].substring(1).toLowerCase(`${secondGuy[i]}`)
+        if(storeThem.includes(hereChild)){
+            let whatareYou = `${secondGuy[i]}`
+            storeThem.replace(hereChild,whatDidyouUp)
+            let whatDidyouUp = storeThem;
+            console.log(whatDidyouUp);
+        }
+     }
+return storeThem;
+
+    }
+
+   let kdi = titleCase('a clash of KINGS', 'a an the of');
+   console.log(kdi)
+
+
+
+
+

@@ -2,11 +2,34 @@ package com.techelevator;
 
 public class TestCode {
 
+    public String myName;
+
+    public TestCode(String myName) {
+        this.myName = myName;
+    }
+
+
+    public static String herEOne (String newName){
+        return newName+"ChampIsHere";
+    }
+
+    public void setThem(String change){
+
+       String whyOne = herEOne(change);
+        this.myName=whyOne;
+
+    }
+
+
+
     public static void main(String[] args) {
         String firstHalf = "10.0.0.10";
         String secondHalf = "10.0.1.0";
 
+
+
         System.out.println( ipsBetween(firstHalf,secondHalf));
+
     }
 
 
