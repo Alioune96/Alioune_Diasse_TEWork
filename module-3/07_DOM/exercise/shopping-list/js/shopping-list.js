@@ -27,7 +27,7 @@ function displayGroceries() {
 
   for(let i = 0; i < groceries.length; i++){
       let createNew = document.createElement("li");
-      createNew.textContent = groceries[i]
+      createNew.textContent = groceries[i];
       whatwillyoudo.appendChild(createNew)
   }
 
@@ -38,8 +38,10 @@ function displayGroceries() {
  * to every list item and add the class completed to each one
  */
 function markCompleted() {
-  setPageTitle();
-
+    let listFun = document.getElementsByTagName("li");
+    for(let i = 0; i<listFun.length; i++){
+   listFun[i].classList.add("completed");
+    }
 }
 
 setPageTitle();
