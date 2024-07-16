@@ -371,3 +371,25 @@ findLargest(number)
  *
  * Read the tests to verify you have the correct behavior.
  */
+
+
+function getSumOfSubArrayValues(arrayFunnyKid){
+   if(arrayFunnyKid==undefined){
+    return 0;
+   }
+   
+    let jamesBrown = 0
+    let total = 0
+
+    for(one of arrayFunnyKid){
+       let totalFun =  one.reduce((a,jamesBrown)=>{return a+=jamesBrown },jamesBrown)
+        total+=totalFun
+    }
+
+
+    // let whatThis = arrayFunnyKid.forEach(one.reduce((a,jamesBrown)=>{return a+=jamesBrown },jamesBrown))
+
+    return total;
+
+
+}
