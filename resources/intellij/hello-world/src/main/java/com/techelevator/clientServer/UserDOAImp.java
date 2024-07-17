@@ -1,20 +1,26 @@
-package com.techelevator;
+package com.techelevator.clientServer;
 
+import com.techelevator.Server.UserDOA;
+import com.techelevator.Server.UserInformation;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
-public class UserDOAImp implements UserDOA{
+
+
+public class UserDOAImp implements UserDOA {
 
     JdbcTemplate connectToOtherWorld;
+    com.techelevator.Server.UserInformation here;
+
 
     public UserDOAImp(BasicDataSource winTime){
     this.connectToOtherWorld=new JdbcTemplate(winTime);
 
     }
-    @Override
-    public void createdUser(UserInformation userClass) {
+
+    public void createdUser(com.techelevator.Server.UserInformation userClass) {
         String thiswillwork = "INSERT INTO userinfo (first_name,last_name,email,phone_number,age) VALUES (?,?,?,?,?)";
         try{
             connectToOtherWorld.update(thiswillwork,userClass.getFirstName(),userClass.getLastName(),userClass.getEmail(),userClass.getPhoneNumber(),userClass.getAge());
@@ -30,7 +36,7 @@ public class UserDOAImp implements UserDOA{
 
     }
 
-    @Override
+
     public void deleteAccount(String phonenumber, String makeMe) {
 
         String firstOne = "SELECT user_id FROM userinfo WHERE first_name ILIKE ? AND phone_number = ?;\n";
@@ -67,10 +73,27 @@ public class UserDOAImp implements UserDOA{
         }
     }
 
+    public com.techelevator.Server.UserInformation checkUser(String firstName, String lastName){
+        com.techelevator.Server.UserInformation returnUser = null;
+        String sqlStuff = "SELECT * FROM userinfo WHERE first_name ILIKE ? AND last_name ILIKE ?;";
+        SqlRowSet findThis = connectToOtherWorld.queryForRowSet(sqlStuff, firstName,lastName);
+        if(!findThis.wasNull()){
+            if(findThis.next()){
+                returnUser = creatingHumans(findThis);
+            }
+        }
 
 
-    public UserInformation creatingHumans(SqlRowSet setforData){
-        UserInformation newKid = new UserInformation();
+
+        return returnUser;
+    }
+
+
+
+
+    public com.techelevator.Server.UserInformation creatingHumans(SqlRowSet setforData){
+        com.techelevator.Server.UserInformation newKid = new UserInformation();
+        newKid.setUserId(setforData.getInt("user_id"));
         newKid.setFirstName(setforData.getString("first_name"));
         newKid.setLastName(setforData.getString("last_name"));
         newKid.setPhoneNumber(setforData.getString("phone_number"));

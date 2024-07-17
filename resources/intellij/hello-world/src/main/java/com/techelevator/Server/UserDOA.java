@@ -1,4 +1,6 @@
-package com.techelevator;
+package com.techelevator.Server;
+
+import java.util.Scanner;
 
 public interface UserDOA {
 

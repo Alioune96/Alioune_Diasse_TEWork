@@ -1,4 +1,7 @@
-package com.techelevator;
+package com.techelevator.clientServer;
+
+import com.techelevator.Server.UserDOA;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

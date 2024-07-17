@@ -4,7 +4,7 @@ let pageTitle = "My Shopping List";
 // add groceries
 
 let groceries = ["Chips","Water","Hot Dog", "More Chip", "More Water","Candy", "Ramen", "More Ramen","More Candy","Even More Candy"]
-
+let checking = false;
 
 /**
  * This function will get a reference to the title and set its text to the value
@@ -38,10 +38,31 @@ function displayGroceries() {
  * to every list item and add the class completed to each one
  */
 function markCompleted() {
-    let listFun = document.getElementsByTagName("li");
+    // let listFun = document.querySelectorAll("li");
+    
+   
+    let listFun = document.querySelectorAll('li');
     for(let i = 0; i<listFun.length; i++){
    listFun[i].classList.add("completed");
     }
+
+    let hereOne = document.querySelector(".btn");
+    hereOne.classList.add("as");
+
+
+    let secondCL = document.querySelector(".as");
+    secondCL.textContent = "Un-Marked List"
+    
+
+   
+}
+
+
+function unMarked(){
+  let hereKid = document.querySelectorAll("li")
+  for(let i = 0; i < hereKid.length; i++){
+    hereKid[i].classList.remove("completed");
+  }
 }
 
 setPageTitle();
@@ -53,4 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // When the DOM Content has loaded attach a click listener to the button
   const button = document.querySelector('.btn');
   button.addEventListener('click', markCompleted);
-});
+  button.addEventListener('dblclick', unMarked);
+  });
+
+

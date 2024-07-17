@@ -1,8 +1,9 @@
-package com.techelevator;
-import java.util.Arrays;
+package com.techelevator.Server;
+
 import java.util.Scanner;
 
 public class UserInformation {
+    private int userId;
     private String firstName;
     private String lastName;
     private String email;
@@ -10,11 +11,11 @@ public class UserInformation {
     private int Age;
 
 
-    public UserInformation(){
+    public UserInformation() {
 
     }
 
-    public UserInformation(String firstName,String lastName, String email, String phoneNumber, int age) {
+    public UserInformation(String firstName, String lastName, String email, String phoneNumber, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -62,6 +63,11 @@ public class UserInformation {
     public void setAge(int age) {
         Age = age;
     }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
 
     public void setHobbies() {
         boolean userI = true;
