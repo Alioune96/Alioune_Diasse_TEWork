@@ -36,3 +36,66 @@ function displayGroceries() {
     ul.appendChild(li);
   });
 }
+
+function loopThrough(){
+  
+ 
+    const champMan = document.querySelectorAll("li");
+
+     if(allItemsIncomplete==false){
+
+      for(let i = 0; i < champMan.length;i++){
+        champMan[i].classList.remove("completed");
+      }
+      const champchampchampyeahthatme = document.getElementById("toggleAll");
+      champchampchampyeahthatme.textContent = "Mark All Complete";
+      allItemsIncomplete = true;
+
+    }else{
+      for(let i = 0; i < champMan.length; i++){
+        champMan[i].classList.add("completed");
+      }
+      const listenImjustTryNow = document.getElementById("toggleAll");
+      listenImjustTryNow.textContent = "Mark All Incomplete";
+      allItemsIncomplete=false;
+    }
+    
+
+
+}
+
+
+document.addEventListener("DOMContentLoaded",()=>{
+  setPageTitle();
+displayGroceries();
+let eachOfThem = document.querySelectorAll("li");
+eachOfThem.forEach((e)=>{
+  e.addEventListener('click',()=>{ 
+    e.classList.add("completed");
+  })
+}
+)
+eachOfThem.forEach((e)=>{
+  e.addEventListener("dblclick",()=>{
+    e.classList.remove("completed");
+  })
+}
+)
+const youA = document.getElementById("toggleAll");
+youA.addEventListener("click", loopThrough)
+
+
+
+
+
+
+
+
+
+})
+
+
+
+
+
+
