@@ -1,7 +1,7 @@
 package com.techelevator.clientServer;
 
 import com.techelevator.Server.UserDOA;
-import com.techelevator.Server.UserInformation;
+import com.techelevator.clientServer.UserInformation;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
@@ -73,33 +73,33 @@ public class UserDOAImp implements UserDOA {
         }
     }
 
-    public com.techelevator.Server.UserInformation checkUser(String firstName, String lastName){
-        com.techelevator.Server.UserInformation returnUser = null;
-        String sqlStuff = "SELECT * FROM userinfo WHERE first_name ILIKE ? AND last_name ILIKE ?;";
-        SqlRowSet findThis = connectToOtherWorld.queryForRowSet(sqlStuff, firstName,lastName);
-        if(!findThis.wasNull()){
-            if(findThis.next()){
-                returnUser = creatingHumans(findThis);
-            }
-        }
+//    public com.techelevator.Server.UserInformation checkUser(String firstName, String lastName){
+//        com.techelevator.Server.UserInformation returnUser = null;
+//        String sqlStuff = "SELECT * FROM userinfo WHERE first_name ILIKE ? AND last_name ILIKE ?;";
+//        SqlRowSet findThis = connectToOtherWorld.queryForRowSet(sqlStuff, firstName,lastName);
+//        if(!findThis.wasNull()){
+//            if(findThis.next()){
+//                returnUser = creatingHumans(findThis);
+//            }
+//        }
+//
+//
+//
+//        return returnUser;
+//    }
 
 
 
-        return returnUser;
-    }
 
-
-
-
-    public com.techelevator.Server.UserInformation creatingHumans(SqlRowSet setforData){
-        com.techelevator.Server.UserInformation newKid = new UserInformation();
-        newKid.setUserId(setforData.getInt("user_id"));
-        newKid.setFirstName(setforData.getString("first_name"));
-        newKid.setLastName(setforData.getString("last_name"));
-        newKid.setPhoneNumber(setforData.getString("phone_number"));
-        newKid.setAge(setforData.getInt("age"));
-        newKid.setEmail(setforData.getString("email"));
-
-        return newKid;
-    }
+//    public com.techelevator.Server.UserInformation creatingHumans(SqlRowSet setforData){
+//        com.techelevator.Server.UserInformation newKid = new UserInformation();
+//        newKid.setUserId(setforData.getInt("user_id"));
+//        newKid.setFirstName(setforData.getString("first_name"));
+//        newKid.setLastName(setforData.getString("last_name"));
+//        newKid.setPhoneNumber(setforData.getString("phone_number"));
+//        newKid.setAge(setforData.getInt("age"));
+//        newKid.setEmail(setforData.getString("email"));
+//
+//        return newKid;
+//    }
 }

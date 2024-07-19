@@ -17,6 +17,7 @@ public class Main {
         appRun.appStarted();
 
 
+
     }
 
 
@@ -64,11 +65,11 @@ public class Main {
                     System.out.print("What is your Last name?: ");
                     String lastName = userAnswer.nextLine();
 
-                    UserInformation thisWouldKeep = makeSure.checkUser(firstName,lastName);
-                    if (thisWouldKeep != null) {
-                        System.out.println("Hello: " + thisWouldKeep.getFirstName()+". Welcome Back!");
-                        doesUserHaveAccount = false;
-                    }
+//                    UserInformation thisWouldKeep = makeSure.checkUser(firstName,lastName);
+//                    if (thisWouldKeep != null) {
+//                        System.out.println("Hello: " + thisWouldKeep.getFirstName()+". Welcome Back!");
+//                        doesUserHaveAccount = false;
+//                    }
                 } else {
                     UserInformation hello = userAccount.settingAccount();
                     if (hello == null) {
@@ -83,7 +84,7 @@ public class Main {
                             } else {
                                 hello = userAccount.settingAccount();
                                 if (hello != null) {
-                                    makeSure.createdUser(hello);
+//                                    makeSure.createdUser(hello);
                                     hasbeenCreate = false;
                                     doesUserHaveAccount = false;
                                 }
