@@ -66,24 +66,24 @@ computed:{
    
     
    if(this.search.firstName != '' ){
- usersForfun = this.users.filter((u)=> u.firstName.toLowerCase().match(this.search.firstName.toLowerCase()))   
+ usersForfun = usersForfun.filter((u)=> u.firstName.toLowerCase().match(this.search.firstName.toLowerCase()))   
     }
    if( this.search.lastName != ''){
- usersForfun = this.users.filter((u)=> u.lastName.toLowerCase().match(this.search.lastName.toLowerCase()))
+ usersForfun = usersForfun.filter((u)=> u.lastName.toLowerCase().match(this.search.lastName.toLowerCase()))
    }
    if(this.search.emailAddress != ''){
-usersForfun = this.users.filter((u)=> u.emailAddress.toLowerCase().match(this.search.emailAddress.toLowerCase()))
+usersForfun = usersForfun.filter((u)=> u.emailAddress.toLowerCase().match(this.search.emailAddress.toLowerCase()))
    }
    if(this.search.username != ''){
-usersForfun = this.users.filter((u)=> u.username.toLowerCase().match(this.search.username.toLowerCase()))
+usersForfun = usersForfun.filter((u)=> u.username.toLowerCase().match(this.search.username.toLowerCase()))
    }
   
   if(this.search.status == "Inactive"){
-  usersForfun = this.users.filter((e)=>e.status.match(this.search.status));
+  usersForfun = usersForfun.filter((e)=>e.status.match(this.search.status));
    }
    
    if(this.search.status == "Active"){
-  usersForfun = this.users.filter((e)=>e.status.match(this.search.status));
+  usersForfun = usersForfun.filter((e)=>e.status.match(this.search.status));
    }
    
    
