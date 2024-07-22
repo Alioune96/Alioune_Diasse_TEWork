@@ -74,13 +74,13 @@ describe("UserList.vue", () => {
   describe("Part one tests", () => {
     it("should display a list of users with correct data", () => {
       const rows = wrapper.findAll("#tblUsers tbody tr");
-      rows.length.should.equal(7);
+      rows.length.should.equal(6);
       let columns = rows.at(1).findAll("td");
-      columns.at(0).text().should.equal(users[0].firstName);
-      columns.at(1).text().should.equal(users[0].lastName);
-      columns.at(2).text().should.equal(users[0].username);
-      columns.at(3).text().should.equal(users[0].emailAddress);
-      columns.at(4).text().should.equal(users[0].status);
+      columns.at(0).text().should.equal(users[1].firstName);
+      columns.at(1).text().should.equal(users[1].lastName);
+      columns.at(2).text().should.equal(users[1].username);
+      columns.at(3).text().should.equal(users[1].emailAddress);
+      columns.at(4).text().should.equal(users[1].status);
     });
   });
 

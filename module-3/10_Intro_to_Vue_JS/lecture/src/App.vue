@@ -1,21 +1,25 @@
 <template>
   <div class="main">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+    <AliouneReview />
+    <h1>{{ productName }}</h1>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import AliouneReview from './components/AliouneReview.vue';
+
+// import HelloWorld from './components/HelloWorld.vue';
 
 export default {
   components: {
-    HelloWorld
-  }
+    AliouneReview
+}
 }
 </script>
 
-<style>
+<style scoped>
 .main {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
