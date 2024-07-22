@@ -1,6 +1,4 @@
 <template>
-          <h1>{{options}}</h1>
-
   <table id="tblUsers">
     <thead>
     <tr>
@@ -44,8 +42,8 @@ export default {
     return {
       
       users: [
-      { firstName: "John", lastName: 'Smith', username: 'jsmith', emailAddress: 'jsmith@gmail.com', status: 'Active' },
-      { firstName: 'Anna', lastName: 'Bell', username: 'abell', emailAddress: 'abell@yahoo.com', status: 'Active' },
+        { firstName: "John", lastName: 'Smith', username: 'jsmith', emailAddress: 'jsmith@gmail.com', status: 'Active' },
+        { firstName: 'Anna', lastName: 'Bell', username: 'abell', emailAddress: 'abell@yahoo.com', status: 'Active' },
         { firstName: 'George', lastName: 'Best', username: 'gbest', emailAddress: 'gbest@gmail.com', status: 'Inactive' },
         { firstName: 'Ben', lastName: 'Carter', username: 'bcarter', emailAddress: 'bcarter@gmail.com', status: 'Active' },
         { firstName: 'Katie', lastName: 'Jackson', username: 'kjackson', emailAddress: 'kjackson@yahoo.com', status: 'Active' },
@@ -64,6 +62,7 @@ export default {
 computed:{
   filteredList(){
     let usersForfun = this.users;
+   
     
    if(this.search.firstName != '' ){
  usersForfun = this.users.filter((u)=> u.firstName.toLowerCase().match(this.search.firstName.toLowerCase()))   
@@ -79,7 +78,7 @@ usersForfun = this.users.filter((u)=> u.username.toLowerCase().match(this.search
    }
   
   if(this.search.status == "Inactive"){
-   usersForfun = this.users.filter((e)=>e.status.match(this.search.status));
+  usersForfun = this.users.filter((e)=>e.status.match(this.search.status));
    }
    
    if(this.search.status == "Active"){
@@ -92,16 +91,6 @@ usersForfun = this.users.filter((u)=> u.username.toLowerCase().match(this.search
 
 
 },
-options(){
-
-  if(this.search.status == "Inactive"){
-    return "Kid";
-  }
-
-  
-return `${this.status}`
-}
-
 
 
 }
