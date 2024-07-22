@@ -8,7 +8,10 @@
         <th>Email Address</th>
         <th>Status</th>
     </tr>
-    <tr>
+    </thead>
+
+    <tbody>
+      <tr>
       <td><input type="text" id="firstNameFilter" v-model="search.firstName"/></td>
       <td><input type="text" id="lastNameFilter" v-model="search.lastName"/></td>
       <td><input type="text" id="usernameFilter" v-model="search.username" /></td>
@@ -21,10 +24,8 @@
         </select>
       </td>
     </tr>
-    </thead>
 
-    <tbody>
-      <tr v-for="(user, index) in filteredList" :key="index" class="Inactive" :class="{inactive: user.status.match('Inactive')}">
+    <tr v-for="(user, index) in filteredList" :key="index" class="Inactive" :class="{inactive: user.status.match('Inactive')}">
         <td>{{ user.firstName }}</td>
         <td>{{ user.lastName }}</td>
         <td>{{ user.username }}</td>
