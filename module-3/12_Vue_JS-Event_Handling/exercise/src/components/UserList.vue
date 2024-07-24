@@ -1,4 +1,6 @@
 <template>
+            <h1>{{ checkInput }}</h1>
+
   <div class="container">
     <table id="tblUsers">
       <thead>
@@ -15,7 +17,7 @@
       <tbody>
         <tr>
           <td>
-            <input type="checkbox" id="selectAll" />
+            <input type="checkbox" id="selectAll" @click="grabAll" />
           </td>
           <td>
             <input type="text" id="firstNameFilter" v-model="filter.firstName" />
@@ -44,54 +46,58 @@
           v-bind:class="{ deactivated: user.status === 'Inactive' }"
         >
           <td>
-            <input type="checkbox" v-bind:id="user.id" v-bind:value="user.id" />
+            <input type="checkbox" v-bind:id="user.id" v-bind:value="user.id" v-model="checkInput" >
           </td>
-          <td>{{ user.firstName }}</td>
+          <td >{{ user.firstName }}</td>
           <td>{{ user.lastName }}</td>
           <td>{{ user.username }}</td>
           <td>{{ user.emailAddress }}</td>
           <td>{{ user.status }}</td>
           <td>
-            <button class="btnActivateDeactivate">Activate or Deactivate</button>
+            <button class="btnActivateDeactivate" v-if="user.status=='Active'? this.button = 'Deactivate' : this.button= 'Activate'" @click.prevent="changeWorld(user)" >{{ button }}</button>
           </td>
         </tr>
       </tbody>
     </table>
 
     <div class="all-actions">
-      <button>Activate Users</button>
-      <button>Deactivate Users</button>
-      <button>Delete Users</button>
+      <button  @click.prevent="changeName" :disabled="this.checkInput==0">Activate Users</button>
+      <button @click.prevent="goAgain" :disabled="this.checkInput==0">Deactivate Users</button>
+      <button @click.prevent="thirdButton" :disabled="this.checkInput==0">Delete Users</button>
     </div>
 
-    <button>Add New User</button>
-
-    <form id="frmAddNewUser">
+  
+  
+    <button  @click.prevent="getClick">Add New User</button>
+    <form v-show="!showForm" id="frmAddNewUser" >
       <div class="field">
         <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName" />
+        <input type="text" id="firstName" name="firstName" v-model="this.newUser.firstName"/>
       </div>
       <div class="field">
         <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lastName" />
+        <input type="text" id="lastName" name="lastName" v-model="this.newUser.lastName" />
       </div>
       <div class="field">
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" />
+        <input type="text" id="username" name="username" v-model="this.newUser.username"/>
       </div>
       <div class="field">
         <label for="emailAddress">Email Address:</label>
-        <input type="text" id="emailAddress" name="emailAddress" />
+        <input type="text" id="emailAddress" name="emailAddress" v-model="this.newUser.emailAddress" />
       </div>
-      <button type="submit" class="btn save">Save User</button>
+      <button type="submit" class="btn save" @click.prevent="addButton" >Save User</button>
     </form>
   </div>
 </template>
 
 <script>
+
+
 export default {
   data() {
     return {
+      button:"",
       filter: {
         firstName: "",
         lastName: "",
@@ -108,6 +114,10 @@ export default {
         emailAddress: "",
         status: "Active"
       },
+      showForm: true,
+      checkInput: [],
+      yougrabbing : true,
+
       users: [
         {
           id: 1,
@@ -161,10 +171,90 @@ export default {
     };
   },
   methods: {
-    getNextUserId() {
-      return this.nextUserId++;
+    changeName(){
+      
+      if(this.checkInput != 0){
+      for(let i =0; i < this.checkInput.length; i++){
+          this.filteredList.filter((e)=>{
+            if(e.id==this.checkInput[i]){
+              e.status = "Active";
+            }
+          })
+        
+      }
+      this.checkInput = [];
     }
   },
+    goAgain(){
+      if(this.checkInput != 0){
+      for(let i = 0; i < this.checkInput.length;i++){
+        this.filteredList.filter((e)=>{
+          if(e.id == this.checkInput[i]){
+            e.status = "Inactive";
+          }
+        })
+      }
+      this.checkInput = [];
+    }
+  },
+
+    grabAll(){
+      if(this.yougrabbing == true){
+      this.filteredList.forEach((e)=>{this.checkInput.push(e.id)})
+      this.yougrabbing = false
+    }else{
+      this.filteredList.forEach(()=>{this.checkInput.pop()})
+      this.yougrabbing = true
+      this.checkInput = []
+    }
+      
+
+    },
+
+
+    thirdButton(){
+      if(this.checkInput != 0){
+      for(let i = 0; i < this.checkInput.length; i++){
+        this.filteredList.forEach((e,index)=>{
+          if(e.id==this.checkInput[i]){
+            this.filteredList.splice(index,1)
+          }
+        })
+      }
+
+
+    }
+  },
+    getNextUserId() {
+      return this.nextUserId++;
+    },
+    getClick(){
+      if(this.showForm==false){
+        this.showForm = true
+      }else{
+        this.showForm = false;
+      } 
+    },
+    addButton(){
+      this.newUser.id = this.getNextUserId();
+      this.users.push(this.newUser);
+      this.newUser = {};
+    },
+    changeWorld(user){
+        if(user.status=='Active'){
+          return user.status ="Inactive";
+        }else{
+          return user.status = "Active";
+        }
+      },
+     
+        },
+
+      
+
+
+   
+  
   computed: {
     filteredList() {
       let filteredUsers = this.users;
@@ -205,6 +295,7 @@ export default {
     }
   }
 };
+
 </script>
 
 <style scoped>
