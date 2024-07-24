@@ -2,7 +2,16 @@
   <section>
 
     <form>
-      <input v-model="example.checkbox" type="checkbox" />
+      <div>
+        <label>Attributes!</label>
+        <input type="checkbox"  v-bind:checked="allReviewsHelpful" />
+        <input type="submit" value="Click here to Submit!" v-bind:disabled="isAverageRatingTwoStars"  />
+      </div>
+
+
+
+
+      <!-- <input v-model="example.checkbox" type="checkbox" />
       <input v-model="example.txt" type="text" />
       <input v-model="example.radio" type="radio" />
       <input v-model="example.pass" type="password" />
@@ -11,7 +20,7 @@
         <option value="15">Fifteen</option>
         <option value="21">Twenty One</option>
         <option value="35">Thirty Five</option>
-      </select>
+      </select> -->
     </form>
 
 
@@ -85,6 +94,23 @@ export default {
     };
   },
   computed: {
+    isAverageRatingTwoStars() {
+      return this.averageRating == 2;
+    },
+    allReviewsHelpful() {
+      let counter = 0;
+      this.reviews.forEach((rev) => {
+        if (rev.helpful) {
+          counter++;
+        }
+      });
+
+      if (counter === this.reviews.length) {
+        return 1;
+      }
+
+      return null;
+    },
     averageRating() {
       return (this.reviews.reduce((acc, el) => { return acc + el.rating}, 0) / this.reviews.length).toFixed(2);
     }
