@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import BookCard from '../components/BookCard.vue';
+import BookCard from '../views/BookCard.vue';
 
 export default {
   computed: {

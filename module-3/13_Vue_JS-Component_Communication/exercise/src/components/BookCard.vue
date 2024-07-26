@@ -1,12 +1,24 @@
 <template>
-  <div class="card">
+     <h1>{{ chess }}</h1>
+    <div class="card" :class="book.read ? 'read': 'none'">
+      <h2 class="book-title">{{ book.title }}</h2>
+      <img class="book-image" v-bind:src="'http://covers.openlibrary.org/b/isbn/'+`${book.isbn}` + '-M.jpg'" alt="">
+      <h3 class="book-author">{{ book.author }}</h3>
 
-  </div>
+      <button :class="book.read ? 'mark-read': 'mark-unread'"  @click="firstMethod(book.read)" v-if="book.read == true ? word = 'Mark Unread': word = 'Mark Read'">{{ word }}</button>
+
+    </div>
 </template>
 
 <script>
 export default {
+  props:['book'],
 
+methods: {
+  firstMethod(){
+     this.$store.commit("CHANGE_STATUS",this.book);
+  },
+}
 }
 </script>
 
