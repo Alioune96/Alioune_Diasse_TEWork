@@ -31,7 +31,7 @@ export default {
                     title: this.title,
                     author: this.author,
                     isbn: this.isbn,
-                    read: true,
+                    read: false,
                 };
             this.$store.commit("ADD_MORE",newOne);
             this.title = '';
