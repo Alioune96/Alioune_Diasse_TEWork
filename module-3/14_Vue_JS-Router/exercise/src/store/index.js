@@ -128,7 +128,16 @@ export function createStore() {
       },
       SAVE_BOOK(state, book) {
         state.books.push(book);
-      }
+      },
+      ONE_BOOK(state, id){
+        state.books.filter((e)=>{
+          
+            return e.isbn==id;
+          }
+        )
+        }
+        
+      
     },
     actions: {},
     modules: {},

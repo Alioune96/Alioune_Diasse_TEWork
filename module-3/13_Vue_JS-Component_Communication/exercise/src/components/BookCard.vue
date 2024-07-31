@@ -1,18 +1,18 @@
 <template>
-     <h1>{{ chess }}</h1>
-    <div class="card" :class="book.read ? 'read': 'none'">
+    <div class="card" :class=" {read: book.read}">
       <h2 class="book-title">{{ book.title }}</h2>
       <img class="book-image" v-bind:src="'http://covers.openlibrary.org/b/isbn/'+`${book.isbn}` + '-M.jpg'" alt="">
       <h3 class="book-author">{{ book.author }}</h3>
-
-      <button :class="book.read ? 'mark-read': 'mark-unread'"  @click="firstMethod(book.read)" v-if="book.read == true ? word = 'Mark Unread': word = 'Mark Read'">{{ word }}</button>
-
+      <button @click="firstMethod(book.read)" class="mark-unread" v-show="book.read">Mark Unread</button>
+      <button @click="firstMethod(book.read)" class="mark-read"  v-show="!book.read">Mark Read </button>
     </div>
 </template>
 
 <script>
 export default {
   props:['book'],
+
+
 
 methods: {
   firstMethod(){

@@ -19,6 +19,7 @@ public class JdbcTimesheetDao implements TimesheetDao {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
+
     @Override
     public Timesheet getTimesheetById(int timesheetId) {
         Timesheet timesheet = null;
@@ -35,6 +36,9 @@ public class JdbcTimesheetDao implements TimesheetDao {
         } catch (DataIntegrityViolationException e) {
             throw new DaoException("Data integrity violation", e);
         }
+
+
+
         return timesheet;
     }
 

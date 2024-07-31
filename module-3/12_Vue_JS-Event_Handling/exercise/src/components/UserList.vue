@@ -15,7 +15,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr>npm run dev
+          
           <td>
             <input type="checkbox" id="selectAll" @click="grabAll" />
           </td>

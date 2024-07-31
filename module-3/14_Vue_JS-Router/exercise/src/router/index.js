@@ -24,8 +24,8 @@ const routes = [
     name: 'NewBook',
     component: NewBookView
   },
-  { path:'/testOne/',
-    name: 'one',
+  { path:'/book/:id',
+    name: 'JustOne',
     component:JustOneView
 
   }

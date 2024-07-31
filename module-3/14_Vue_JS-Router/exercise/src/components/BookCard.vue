@@ -1,4 +1,5 @@
 <template>
+  <router-link :to="{name: 'JustOne', params: {id: book.isbn}}">
   <div class="card" v-bind:class="{ read: book.read }">
     <h2 class="book-title">{{ book.title }}</h2>
     <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'" />
@@ -8,7 +9,9 @@
       <button class="mark-unread" v-on:click.prevent="setRead(false)" v-if="book.read">Mark Unread</button>
     </div>
     <button v-if="enableAdd" v-on:click.prevent="addToReadingList(book)">Add to Reading List</button>
+ 
   </div>
+</router-link>
 </template>
 
 <script>
